@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
 import { 
-  Syringe, Instagram, Facebook, MessageCircle, Menu, X, 
+  Syringe, Instagram, Facebook, MessageCircle,MapPin, Menu, X, 
   ShieldPlus, ShieldCheck, Medal, ChevronRight, ChevronLeft, Star, Camera 
 } from 'lucide-react';
 
@@ -45,7 +45,7 @@ export default function Home() {
       titulo: "Tercio Superior",
       subtitulo: "Botox",
       desc: "Suaviza arrugas de expresión en frente, entrecejo y patas de gallo para una mirada descansada.",
-      img: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=600"
+      img: "/inyecbtx.jpg"
     },
     {
       titulo: "Tercio Medio",
@@ -206,28 +206,36 @@ export default function Home() {
       </nav>
 
       {/* SECCIÓN: HERO / QUIÉNES SOMOS */}
-      <section id="quienes-somos" className="py-16 md:py-24 px-6 md:px-12 bg-[#F2F2F2]">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
-          <div className="flex-1 text-left order-1">
-            <h3 className="text-[#C5A059] text-4xl md:text-6xl font-serif mb-8 leading-[1.1] uppercase font-light tracking-tight">
-              Dr. Beauty Ramos <br/> 
-              <span className="italic uppercase">Medicina Estética</span> <br/> 
-              y Bienestar Premium
-            </h3>
-            <p className="text-[#4A4A4A] text-lg md:text-xl font-light leading-relaxed mb-10 tracking-wide">
-              Tecnología avanzada, resultados reales.
-            </p>
-            <button className="border border-[#C5A059] text-[#C5A059] hover:bg-[#C5A059] hover:text-white px-12 py-4 text-[10px] font-normal uppercase tracking-[0.3em] transition-all duration-700 shadow-sm">
-              Hacé tu consulta
-            </button>
-          </div>
-          <div className="flex-1 order-2 w-full">
-            <div className="relative aspect-[4/5] md:aspect-square bg-white p-4 shadow-xl border border-[#D4C5A1]/30">
-              <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=800" alt="Médico" className="w-full h-full object-cover grayscale-[30%]" />
-            </div>
-          </div>
-        </div>
-      </section>
+<section id="quienes-somos" className="py-16 md:py-24 px-6 md:px-12 bg-[#F2F2F2]">
+  <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+    <div className="flex-1 text-left order-1">
+      <h3 className="text-[#C5A059] text-4xl md:text-6xl font-serif mb-8 leading-[1.1] uppercase font-light tracking-tight">
+        Dr. Beauty Ramos <br/> 
+        <span className="italic uppercase">Medicina Estética</span> <br/> 
+        y Bienestar Premium
+      </h3>
+      <p className="text-[#4A4A4A] text-lg md:text-xl font-light leading-relaxed mb-10 tracking-wide">
+        Tecnología avanzada, resultados reales.
+      </p>
+      <button className="border border-[#C5A059] text-[#C5A059] hover:bg-[#C5A059] hover:text-white px-12 py-4 text-[10px] font-normal uppercase tracking-[0.3em] transition-all duration-700 shadow-sm">
+        Hacé tu consulta
+      </button>
+    </div>
+
+    <div className="flex-1 order-2 w-full">
+      {/* Contenedor corregido: Quitamos el aspect ratio fijo para que no corte la cabeza */}
+      <div className="relative bg-white p-3 md:p-6 shadow-2xl border border-[#D4C5A1]/30 transition-all duration-1000">
+        <img 
+          src="/Drfelix.jpg" 
+          alt="Dr. Félix" 
+          className="w-full h-auto object-contain grayscale-[5%] hover:grayscale-0 transition-all duration-700" 
+        />
+        {/* Un pequeño detalle decorativo en la esquina para reforzar el estilo Premium */}
+        <div className="absolute top-0 right-0 w-12 h-12 border-t border-r border-[#D4C5A1]/40 shadow-sm"></div>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* SECCIÓN: ENFOQUE MÉDICO */}
       <section className="py-16 md:pt-24 md:pb-16 px-6 md:px-12 bg-[#FDFBF7]">
@@ -244,7 +252,7 @@ export default function Home() {
           </div>
           <div className="flex-1 order-2 md:order-1 w-full">
             <div className="relative aspect-[4/5] md:aspect-square bg-white p-4 shadow-xl border border-[#D4C5A1]/30">
-              <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800" alt="Consulta" className="w-full h-full object-cover grayscale-[20%]" />
+            <img src="/medicopaciente.jpg" alt="Consulta Dr. Beauty" className="w-full h-full object-cover grayscale-[10%]" />
             </div>
           </div>
         </div>
@@ -470,91 +478,170 @@ export default function Home() {
           </div>
         </div>
       </section>
+{/* --- SECCIÓN: GALERÍA ANTES Y DESPUÉS (CARRUSEL) --- */}
+<section className="py-24 bg-[#FDFBF7] px-4 md:px-12 relative overflow-hidden border-t border-[#D4C5A1]/20">
+  <div className="max-w-7xl mx-auto relative">
+    <div className="text-center mb-16">
+      <h4 className="text-[#C5A059] text-[10px] uppercase tracking-[0.4em] mb-4 font-normal">Galería de Casos</h4>
+      <h2 className="text-3xl md:text-5xl font-serif uppercase font-light text-[#2C3E2D] mb-6">
+        Historias reales,<br/> resultados confiables
+      </h2>
+      <div className="w-12 h-[1px] bg-[#C5A059] mx-auto"></div>
+    </div>
 
-      {/* --- SECCIÓN: GALERÍA ANTES Y DESPUÉS (CARRUSEL) --- */}
-      <section className="py-24 bg-[#FDFBF7] px-4 md:px-12 relative overflow-hidden border-t border-[#D4C5A1]/20">
-        <div className="max-w-7xl mx-auto relative">
-          <div className="text-center mb-16">
-            <h4 className="text-[#C5A059] text-[10px] uppercase tracking-[0.4em] mb-4 font-normal">Galería de Casos</h4>
-            <h2 className="text-3xl md:text-5xl font-serif uppercase font-light text-[#2C3E2D] mb-6">
-              Historias reales,<br/> resultados confiables
-            </h2>
-            <div className="w-12 h-[1px] bg-[#C5A059] mx-auto"></div>
+    {/* Botones de Navegación (Solo visibles en Desktop) */}
+    <div className="hidden lg:block">
+      <button
+        onClick={() => scroll(carruselBioRef, 'left')}
+        className="absolute left-[-40px] top-[55%] -translate-y-1/2 z-40 bg-white/90 border border-[#D4C5A1] p-5 rounded-full text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition-all shadow-xl"
+      >
+        <ChevronLeft size={28} />
+      </button>
+      <button
+        onClick={() => scroll(carruselBioRef, 'right')}
+        className="absolute right-[-40px] top-[55%] -translate-y-1/2 z-40 bg-white/90 border border-[#D4C5A1] p-5 rounded-full text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition-all shadow-xl"
+      >
+        <ChevronRight size={28} />
+      </button>
+    </div>
+
+    {/* Contenedor Carrusel */}
+    <div
+      ref={carruselBioRef}
+      className="flex overflow-x-auto gap-6 md:gap-8 no-scrollbar pb-10 snap-x snap-mandatory scroll-smooth"
+    >
+      {[
+        { tratamiento: "Rinomodelación", archivo: "/aydrino.jpeg" },
+        { tratamiento: "Relleno de Labios", archivo: "/aydlabios.jpeg" },
+        { tratamiento: "Tratamiento de Ojeras", archivo: "/aydojeras.jpeg" }
+      ].map((item, idx) => (
+        <div
+          key={idx}
+          className="min-w-[85vw] md:min-w-[450px] bg-white border border-[#D4C5A1]/20 p-3 shadow-sm snap-center group"
+        >
+          {/* Visualización de Imagen Completa (Pieza de Dr. Beauty) */}
+          <div className="relative overflow-hidden aspect-[4/3] bg-[#F2F2F2]">
+            <img 
+              src={item.archivo} 
+              alt={item.tratamiento} 
+              className="w-full h-full object-contain" 
+            />
           </div>
 
-          {/* Botones de Navegación (Solo visibles en Desktop) */}
-          <div className="hidden lg:block">
-            <button 
-              onClick={() => scroll(carruselBioRef, 'left')} 
-              className="absolute left-[-40px] top-[55%] -translate-y-1/2 z-40 bg-white/90 border border-[#D4C5A1] p-5 rounded-full text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition-all shadow-xl"
-            >
-              <ChevronLeft size={28} />
-            </button>
-            <button 
-              onClick={() => scroll(carruselBioRef, 'right')} 
-              className="absolute right-[-40px] top-[55%] -translate-y-1/2 z-40 bg-white/90 border border-[#D4C5A1] p-5 rounded-full text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition-all shadow-xl"
-            >
-              <ChevronRight size={28} />
-            </button>
+          {/* Info Centrada */}
+          <div className="py-6 px-2 text-center">
+            <span className="text-[10px] uppercase tracking-[0.3em] text-[#C5A059] font-medium">
+              {item.tratamiento}
+            </span>
           </div>
-
-          {/* Contenedor Carrusel */}
-          <div 
-            ref={carruselBioRef} 
-            className="flex overflow-x-auto gap-6 md:gap-8 no-scrollbar pb-10 snap-x snap-mandatory scroll-smooth"
-          >
-            {galeriasResultados.map((item, idx) => (
-              <div 
-                key={idx} 
-                className="min-w-[85vw] md:min-w-[450px] bg-white border border-[#D4C5A1]/20 p-3 shadow-sm snap-center group"
-              >
-                {/* Comparativa de Fotos */}
-                <div className="flex gap-1 relative overflow-hidden">
-                  <div className="relative flex-1 h-[350px] md:h-[450px]">
-                    <img src={item.antes} alt="Antes" className="w-full h-full object-cover grayscale-[20%]" />
-                    <span className="absolute bottom-4 left-4 bg-black/40 text-white text-[8px] uppercase tracking-[0.2em] px-3 py-1.5 backdrop-blur-md">Antes</span>
-                  </div>
-                  <div className="relative flex-1 h-[350px] md:h-[450px]">
-                    <img src={item.despues} alt="Después" className="w-full h-full object-cover" />
-                    <span className="absolute bottom-4 right-4 bg-[#C5A059]/80 text-white text-[8px] uppercase tracking-[0.2em] px-3 py-1.5 backdrop-blur-md">Después</span>
-                  </div>
-                </div>
-
-                {/* Info Centrada */}
-                <div className="py-6 px-2 text-center">
-                  <span className="text-[10px] uppercase tracking-[0.3em] text-[#C5A059] font-medium">
-                    {item.tratamiento}
-                  </span>
-                </div>
-              </div>
-            ))}
+        </div>
+      ))}
+    </div>
+    
+    {/* Footer del Carrusel */}
+    <div className="mt-12 text-center">
+      <p className="text-[11px] uppercase tracking-[0.3em] text-[#666] mb-8">Ver más casos clínicos reales en nuestras redes</p>
+      <div className="flex justify-center items-center">
+        <a 
+          href="https://instagram.com/drbeautyramos" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="flex items-center gap-4 text-[#C5A059] hover:text-[#2C2C2C] transition-all group"
+        >
+          <div className="p-3 border border-[#C5A059] rounded-full group-hover:bg-[#C5A059] group-hover:text-white transition-all">
+            <Instagram size={24} strokeWidth={1} />
           </div>
+          <span className="text-[10px] uppercase tracking-[0.4em] font-medium">@drbeautyramos</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+     {/* FOOTER PREMIUM REESTRUCTURADO */}
+     <footer id="contacto" className="bg-white py-20 px-6 md:px-12 border-t border-[#D4C5A1]/40">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 items-start">
           
-          {/* Footer del Carrusel */}
-          <div className="mt-12 text-center">
-            <p className="text-[11px] uppercase tracking-[0.3em] text-[#666] mb-8">Ver más casos clínicos reales en nuestras redes</p>
-            <div className="flex justify-center items-center">
+          {/* LADO IZQUIERDO: LOGO / IDENTIDAD */}
+          <div className="flex flex-col items-center md:items-start space-y-6">
+            <Syringe className="text-[#C5A059]" size={40} strokeWidth={1} />
+            <div className="text-center md:text-left">
+              <h3 className="text-[#C5A059] text-xl font-serif uppercase tracking-tighter leading-tight">
+                Dr. Beauty <br /> 
+                <span className="text-[#2C2C2C] font-light">Ramos Mejía</span>
+              </h3>
+              <p className="text-[#999] text-[10px] uppercase tracking-[0.3em] mt-4">Medicina Estética & Bienestar</p>
+            </div>
+          </div>
+
+          {/* CENTRO: ATENCIÓN Y CONTACTO */}
+          <div className="flex flex-col items-center text-center space-y-8">
+            <div>
+              <h4 className="text-[#C5A059] text-[10px] uppercase tracking-[0.4em] mb-4 font-medium">Horarios de Atención</h4>
+              <p className="text-[#4A4A4A] text-sm font-light leading-relaxed">
+                Lunes a Sábados <br />
+                <span className="font-normal text-[#2C2C2C]">10:00 a 18:00</span>
+              </p>
+            </div>
+            
+            <div className="space-y-3">
+              <h4 className="text-[#C5A059] text-[10px] uppercase tracking-[0.4em] mb-4 font-medium">Turnos y Consultas</h4>
+              <p className="text-[#999] text-[9px] uppercase tracking-widest mb-2">(Atención telefónica 24hs)</p>
               <a 
-                href="https://instagram.com" 
+                href="https://wa.me/5491155044320" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 text-[#C5A059] hover:text-[#2C2C2C] transition-all group"
+                className="flex items-center justify-center gap-2 text-[#2C2C2C] hover:text-[#C5A059] transition-colors duration-500 group"
               >
-                <div className="p-3 border border-[#C5A059] rounded-full group-hover:bg-[#C5A059] group-hover:text-white transition-all">
-                  <Instagram size={24} strokeWidth={1} />
-                </div>
-                <span className="text-[10px] uppercase tracking-[0.4em] font-medium">@drbeautyramos</span>
+                <MessageCircle size={16} className="text-[#C5A059] group-hover:scale-110 transition-transform" />
+                <span className="text-base font-light tracking-wider">54 9 11 5504-4320</span>
+              </a>
+              <a href="mailto:drbeautyramos@gmail.com" className="block text-[#666] text-sm font-light hover:text-[#C5A059] transition-colors">
+                drbeautyramos@gmail.com
               </a>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* FOOTER SIMPLE */}
-      <footer id="contacto" className="bg-white py-12 px-6 border-t border-[#D4C5A1]/30 text-center">
-        <Syringe className="text-[#C5A059] mx-auto mb-6" size={32} strokeWidth={1} />
-        <p className="text-[10px] uppercase tracking-[0.4em] text-[#C5A059] mb-4">Dr. Beauty Ramos</p>
-        <p className="text-[#666] text-xs font-light">© 2024 Medicina Estética y Bienestar. Todos los derechos reservados.</p>
+          {/* LADO DERECHO: PAGOS Y UBICACIÓN */}
+          <div className="flex flex-col items-center md:items-end text-center md:text-right space-y-8">
+            <div>
+              <h4 className="text-[#C5A059] text-[10px] uppercase tracking-[0.4em] mb-4 font-medium">Formas de Pago</h4>
+              <p className="text-[#4A4A4A] text-sm font-light leading-relaxed max-w-[200px]">
+                Efectivo, transferencias, <br /> tarjetas de crédito o débito.
+              </p>
+            </div>
+
+            <div className="space-y-3">
+              <h4 className="text-[#C5A059] text-[10px] uppercase tracking-[0.4em] mb-4 font-medium">Dirección</h4>
+              <a 
+                href="https://www.google.com/maps/search/?api=1&query=Av.+De+Mayo+618,+Ramos+Mejia,+Buenos+Aires" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="group inline-flex flex-col items-center md:items-end"
+              >
+                <div className="flex items-center gap-2 text-[#2C2C2C] group-hover:text-[#C5A059] transition-colors mb-1">
+                  <span className="text-sm font-light tracking-wide italic">Av. De Mayo 618, Ramos Mejía</span>
+                  <MapPin size={16} className="text-[#C5A059]" />
+                </div>
+                <span className="text-[9px] uppercase tracking-widest text-[#999] border-b border-[#D4C5A1]/40 pb-0.5 group-hover:text-[#C5A059] group-hover:border-[#C5A059] transition-all">
+                  Ver en Google Maps
+                </span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        {/* BARRA INFERIOR DE COPYRIGHT */}
+        <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-[#F2F2F2] flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-[#999] text-[9px] uppercase tracking-[0.3em]">
+            © 2026 Dr. Beauty Ramos Mejía. Todos los derechos reservados.
+          </p>
+          <div className="flex gap-6 text-[#999] text-[9px] uppercase tracking-[0.3em]">
+            <a href="#" className="hover:text-[#C5A059] transition-colors">Privacidad</a>
+            <a href="#" className="hover:text-[#C5A059] transition-colors">Términos</a>
+          </div>
+        </div>
       </footer>
 
     </main>
