@@ -51,25 +51,25 @@ export default function Home() {
       titulo: "Tercio Medio",
       subtitulo: "Ácido Hialurónico",
       desc: "Reposición de volumen en pómulos, tratamiento de ojeras y rinomodelación sin cirugía.",
-      img: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80&w=600"
+      img: "/facialesrino.jpeg"
     },
     {
       titulo: "Tercio Inferior",
       subtitulo: "Armonización",
       desc: "Perfilado de labios, surcos nasogenianos y definición del contorno mandibular y mentón.",
-      img: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&q=80&w=600"
+      img: "/facialesmenton.jpeg"
     },
     {
       titulo: "Bioestimulación",
       subtitulo: "Plasma Rico en Plaquetas",
       desc: "Tratamiento autólogo que utiliza tus propios factores de crecimiento para regenerar y dar luminosidad a la piel.",
-      img: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=600"
+      img: "/facialesprp.jpeg"
     },
     {
       titulo: "Efecto Lifting",
       subtitulo: "Hilos Tensores",
       desc: "Redefinición del óvalo facial y tratamiento de la flacidez mediante hilos de polidioxanona (PDO) de última generación.",
-      img: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=600"
+      img: "/facialeshilos.jpeg"
     }
   ];
 
