@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
 import { 
-  Syringe, Instagram, Facebook, MessageCircle, MapPin, Menu, X, 
+  Instagram, Facebook, MessageCircle, MapPin, Menu, X, 
   ShieldPlus, ShieldCheck, Medal, ChevronRight, ChevronLeft
 } from 'lucide-react';
 
@@ -152,9 +152,9 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#FDFBF7] text-[#2C2C2C] font-light">
       
-      {/* BOTÓN WHATSAPP FLOTANTE - ✅ CORREGIDO: sin espacio en URL */}
+      {/* BOTÓN WHATSAPP FLOTANTE */}
       <a 
-        href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hola! Vengo desde la web de Dr. Beauty Ramos y me gustaría realizar una consulta.")}`}
+        href={`https://wa.me/ ${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hola! Vengo desde la web de Dr. Beauty Ramos y me gustaría realizar una consulta.")}`}
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-8 right-8 z-[60] bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 animate-bounce"
@@ -163,21 +163,29 @@ export default function Home() {
         <MessageCircle size={30} fill="currentColor" />
       </a>
 
-      {/* NAVBAR */}
+      {/* NAVBAR - ✅ LOGO AGRANDADO */}
       <nav className="bg-white py-5 px-6 border-b border-[#D4C5A1] sticky top-0 z-50">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="flex items-center">
-            <Syringe className="text-[#C5A059]" size={32} strokeWidth={1} />
+          {/* ✅ LOGO CON IMAGEN - TAMAÑO AUMENTADO */}
+          <div className="flex flex-col items-start">
+            <img 
+              src="/logo.jpg" 
+              alt="Dr. Beauty Ramos" 
+              className="h-40 md:h-56 w-auto object-contain"
+            />
+            
           </div>
+          
           <div className="hidden md:flex items-center gap-10 text-[10px] font-normal uppercase tracking-[0.3em] text-[#C5A059]">
             <a href="#quienes-somos" className="hover:text-[#2C3E2D] transition duration-500">Quiénes Somos</a>
             <a href="#tratamientos" className="hover:text-[#2C3E2D] transition duration-500">Nuestros Tratamientos</a>
             <a href="#contacto" className="hover:text-[#2C3E2D] transition duration-500">Contacto</a>
           </div>
+          
           <div className="flex items-center gap-5">
             <div className="hidden md:flex items-center gap-5 text-[#C5A059]">
-              <a href="https://www.instagram.com/drbeauty.ramos" target="_blank" rel="noopener noreferrer" className="hover:text-[#2C3E2D] transition duration-500" aria-label="Instagram"><Instagram size={20} strokeWidth={1.5} /></a>
-              <a href="#" className="hover:text-[#2C3E2D] transition duration-500" aria-label="Facebook"><Facebook size={20} strokeWidth={1.5} /></a>
+              <a href="https://www.instagram.com/drbeauty.ramos " target="_blank" rel="noopener noreferrer" className="hover:text-[#2C3E2D] transition duration-500" aria-label="Instagram"><Instagram size={20} strokeWidth={1.5} /></a>
+              <a href="https://www.facebook.com/drbeauty.ramos " target="_blank" rel="noopener noreferrer" className="hover:text-[#2C3E2D] transition duration-500" aria-label="Facebook"><Facebook size={20} strokeWidth={1.5} /></a>
             </div>
             <button 
               className="md:hidden text-[#C5A059]" 
@@ -209,9 +217,8 @@ export default function Home() {
             <p className="text-[#4A4A4A] text-lg md:text-xl font-light leading-relaxed mb-10 tracking-wide">
               Tecnología avanzada, resultados reales.
             </p>
-            {/* ✅ BOTÓN HERO CORREGIDO: Mensaje cálido de info general */}
             <a 
-              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_HERO)}`}
+              href={`https://wa.me/ ${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_HERO)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block border border-[#C5A059] text-[#C5A059] hover:bg-[#C5A059] hover:text-white px-12 py-4 text-[10px] font-normal uppercase tracking-[0.3em] transition-all duration-700 shadow-sm"
@@ -314,9 +321,8 @@ export default function Home() {
                   <span className="text-[#C5A059] text-[9px] uppercase tracking-[0.2em] mb-3 block font-medium">{t.titulo}</span>
                   <h3 className="text-xl md:text-3xl font-serif mb-5 text-[#2C3E2D]">{t.subtitulo}</h3>
                   <p className="text-[#666] text-sm md:text-base leading-relaxed mb-10 font-light flex-grow">{t.desc}</p>
-                  {/* ✅ BOTÓN FACIAL CORREGIDO */}
                   <a 
-                    href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_FACIAL(t.subtitulo))}`} 
+                    href={`https://wa.me/ ${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_FACIAL(t.subtitulo))}`} 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="inline-block w-full text-center border border-[#C5A059] py-5 text-[10px] uppercase tracking-[0.3em] text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition-all duration-700 font-medium"
@@ -363,9 +369,8 @@ export default function Home() {
                   <span className="text-[#C5A059] text-[9px] uppercase tracking-[0.2em] mb-3 block font-medium">{t.titulo}</span>
                   <h3 className="text-xl md:text-3xl font-serif mb-5 text-[#2C3E2D]">{t.subtitulo}</h3>
                   <p className="text-[#666] text-sm md:text-base leading-relaxed mb-10 font-light flex-grow">{t.desc}</p>
-                  {/* ✅ BOTÓN BIOESTIMULADOR CORREGIDO */}
                   <a 
-                    href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_BIO(t.subtitulo))}`} 
+                    href={`https://wa.me/ ${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_BIO(t.subtitulo))}`} 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="inline-block w-full text-center border border-[#C5A059] py-5 text-[10px] uppercase tracking-[0.3em] text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition-all duration-700 font-medium"
@@ -412,9 +417,8 @@ export default function Home() {
                   <span className="text-[#C5A059] text-[9px] uppercase tracking-[0.2em] mb-3 block font-medium">{t.titulo}</span>
                   <h3 className="text-xl md:text-3xl font-serif mb-5 text-[#2C3E2D]">{t.subtitulo}</h3>
                   <p className="text-[#666] text-sm md:text-base leading-relaxed mb-10 font-light flex-grow">{t.desc}</p>
-                  {/* ✅ BOTÓN CORPORAL CORREGIDO */}
                   <a 
-                    href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_CORP(t.subtitulo))}`} 
+                    href={`https://wa.me/ ${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_CORP(t.subtitulo))}`} 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="inline-block w-full text-center border border-[#C5A059] py-5 text-[10px] uppercase tracking-[0.3em] text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition-all duration-700 font-medium"
@@ -449,9 +453,8 @@ export default function Home() {
                 <p className="text-[#666] text-sm leading-relaxed mb-6 font-light">
                   Plataforma multi-tecnología líder que combina Láser e IPL para el tratamiento de manchas, rosácea, lesiones vasculares y rejuvenecimiento cutáneo profundo.
                 </p>
-                {/* ✅ LINK NORDLYS CORREGIDO */}
                 <a 
-                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_NORDLYS)}`} 
+                  href={`https://wa.me/ ${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_NORDLYS)}`} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-[10px] uppercase tracking-[0.2em] border-b border-[#C5A059] pb-1 hover:text-[#C5A059] transition-colors"
@@ -473,9 +476,8 @@ export default function Home() {
                 <p className="text-[#666] text-sm leading-relaxed mb-6 font-light">
                   Ultrasonido focalizado de alta intensidad. Genera un efecto lifting sin cirugía, tratando la flacidez facial y corporal mediante la estimulación de colágeno.
                 </p>
-                {/* ✅ LINK HIFU CORREGIDO */}
                 <a 
-                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_HIFU)}`} 
+                  href={`https://wa.me/ ${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_HIFU)}`} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-[10px] uppercase tracking-[0.2em] border-b border-[#C5A059] pb-1 hover:text-[#C5A059] transition-colors"
@@ -521,9 +523,8 @@ export default function Home() {
               ].map((item, idx) => (
                 <div key={idx} className="flex flex-col md:flex-row md:items-center justify-between border-b border-[#D4C5A1]/30 py-4 group">
                   <span className="text-[#2C2C2C] text-sm md:text-base font-light mb-2 md:mb-0 group-hover:translate-x-2 transition-transform duration-300">{item.name}</span>
-                  {/* ✅ LINKS CIRUGÍA ESPECÍFICOS CORREGIDOS */}
                   <a 
-                    href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(item.msg)}`}
+                    href={`https://wa.me/ ${WHATSAPP_NUMBER}?text=${encodeURIComponent(item.msg)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[9px] uppercase tracking-[0.2em] text-[#C5A059] font-medium flex items-center gap-2 hover:text-[#2C3E2D] transition-colors"
@@ -533,9 +534,8 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            {/* ✅ BOTÓN CIRUGÍA GENERAL CORREGIDO */}
             <a 
-              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_CIRUGIA_GENERAL)}`}
+              href={`https://wa.me/ ${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_CIRUGIA_GENERAL)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block w-full md:w-auto border border-[#2C3E2D] text-[#2C3E2D] hover:bg-[#2C3E2D] hover:text-white px-12 py-5 text-[10px] font-normal uppercase tracking-[0.3em] transition-all duration-500 text-center"
@@ -602,9 +602,8 @@ export default function Home() {
           <div className="mt-12 text-center">
             <p className="text-[11px] uppercase tracking-[0.3em] text-[#666] mb-8">Ver más casos clínicos reales en nuestras redes</p>
             <div className="flex justify-center items-center">
-              {/* ✅ INSTAGRAM LINK CORREGIDO */}
               <a 
-                href="https://www.instagram.com/drbeauty.ramos" 
+                href="https://www.instagram.com/drbeauty.ramos " 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 text-[#C5A059] hover:text-[#2C2C2C] transition-all group"
@@ -619,19 +618,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FOOTER PREMIUM REESTRUCTURADO */}
+      {/* FOOTER - ✅ LOGO AGRANDADO */}
       <footer id="contacto" className="bg-white py-20 px-6 md:px-12 border-t border-[#D4C5A1]/40">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 items-start">
           
-          <div className="flex flex-col items-center md:items-start space-y-6">
-            <Syringe className="text-[#C5A059]" size={40} strokeWidth={1} />
-            <div className="text-center md:text-left">
-              <h3 className="text-[#C5A059] text-xl font-serif uppercase tracking-tighter leading-tight">
-                Dr. Beauty <br /> 
-                <span className="text-[#2C2C2C] font-light">Ramos Mejía</span>
-              </h3>
-              <p className="text-[#999] text-[10px] uppercase tracking-[0.3em] mt-4">Medicina Estética & Bienestar</p>
-            </div>
+          {/* ✅ COLUMNA 1: Logo imagen - TAMAÑO AUMENTADO */}
+          <div className="flex flex-col items-center md:items-start space-y-4">
+            <img 
+              src="/logo.jpg" 
+              alt="Dr. Beauty Ramos" 
+              className="h-40 md:h-56 w-auto object-contain"
+            />
+            
           </div>
 
           <div className="flex flex-col items-center text-center space-y-8">
@@ -646,9 +644,8 @@ export default function Home() {
             <div className="space-y-3">
               <h4 className="text-[#C5A059] text-[10px] uppercase tracking-[0.4em] mb-4 font-medium">Turnos y Consultas</h4>
               <p className="text-[#999] text-[9px] uppercase tracking-widest mb-2">(Atención telefónica 24hs)</p>
-              {/* ✅ FOOTER WHATSAPP CORREGIDO */}
               <a 
-                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hola! Vengo de la web y quiero hacer una consulta.")}`}
+                href={`https://wa.me/ ${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hola! Vengo de la web y quiero hacer una consulta.")}`}
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 text-[#2C2C2C] hover:text-[#C5A059] transition-colors duration-500 group"
@@ -672,9 +669,8 @@ export default function Home() {
 
             <div className="space-y-3">
               <h4 className="text-[#C5A059] text-[10px] uppercase tracking-[0.4em] mb-4 font-medium">Dirección</h4>
-              {/* ✅ MAPS LINK CORREGIDO (sin espacio) */}
               <a 
-                href="https://www.google.com/maps/search/?api=1&query=Av.+De+Mayo+618,+Ramos+Mejia,+Buenos+Aires" 
+                href="https://www.google.com/maps/search/?api=1&query=Av.+De+Mayo+618 ,+Ramos+Mejia,+Buenos+Aires" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="group inline-flex flex-col items-center md:items-end"
@@ -692,14 +688,10 @@ export default function Home() {
 
         </div>
 
-        <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-[#F2F2F2] flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-[#999] text-[9px] uppercase tracking-[0.3em]">
+        <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-[#F2F2F2] flex justify-center items-center">
+         <p className="text-[#999] text-[9px] uppercase tracking-[0.3em] text-center">
             © 2026 Dr. Beauty Ramos Mejía. Todos los derechos reservados.
           </p>
-          <div className="flex gap-6 text-[#999] text-[9px] uppercase tracking-[0.3em]">
-            <a href="#" className="hover:text-[#C5A059] transition-colors">Privacidad</a>
-            <a href="#" className="hover:text-[#C5A059] transition-colors">Términos</a>
-          </div>
         </div>
       </footer>
 
