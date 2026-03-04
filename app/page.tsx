@@ -18,13 +18,13 @@ export default function Home() {
   const WHATSAPP_NUMBER = "5491155044320";
 
   // Mensajes personalizados para cada sección
-  const MENSAJE_HERO = "Hola! Vi su página web y me gustaría recibir información sobre sus tratamientos. ¿Podrían ayudarme?";
+  const MENSAJE_HERO = 'Hola! Vi su página web y me gustaría recibir información sobre sus tratamientos. ¿Podrían ayudarme?';
   const MENSAJE_FACIAL = (tratamiento: string) => `Hola! Me interesa el tratamiento de ${tratamiento}. ¿Podrían darme más información?`;
   const MENSAJE_BIO = (tratamiento: string) => `Hola! Vi información sobre ${tratamiento} en su web y me gustaría saber más detalles.`;
   const MENSAJE_CORP = (tratamiento: string) => `Hola! Consulto por el tratamiento corporal de ${tratamiento}. ¿Tienen disponibilidad?`;
-  const MENSAJE_NORDLYS = "Hola! Me interesa la tecnología Nordlys que vi en su web. ¿Podrían explicarme en qué consiste?";
-  const MENSAJE_HIFU = "Hola! Vi información sobre HIFU 7D en su página. ¿Podrían contarme más sobre este tratamiento?";
-  const MENSAJE_CIRUGIA_GENERAL = "Hola! Me gustaría solicitar un turno de consulta para evaluar una cirugía plástica. ¿Cuándo podría agendar?";
+  const MENSAJE_NORDLYS = 'Hola! Me interesa la tecnología Nordlys que vi en su web. ¿Podrían explicarme en qué consiste?';
+  const MENSAJE_HIFU = 'Hola! Vi información sobre HIFU 7D en su página. ¿Podrían contarme más sobre este tratamiento?';
+  const MENSAJE_CIRUGIA_GENERAL = 'Hola! Me gustaría solicitar un turno de consulta para evaluar una cirugía plástica. ¿Cuándo podría agendar?';
 
   // Datos de la galería
   const galeriasResultados = [
@@ -154,7 +154,7 @@ export default function Home() {
       
       {/* BOTÓN WHATSAPP FLOTANTE */}
       <a 
-        href={`https://wa.me/ ${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hola! Vengo desde la web de Dr. Beauty Ramos y me gustaría realizar una consulta.")}`}
+        href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hola! Vengo desde la web de Dr. Beauty Ramos y me gustaría realizar una consulta.')}`}
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-8 right-8 z-[60] bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 animate-bounce"
@@ -184,8 +184,8 @@ export default function Home() {
           
           <div className="flex items-center gap-5">
             <div className="hidden md:flex items-center gap-5 text-[#C5A059]">
-              <a href="https://www.instagram.com/drbeauty.ramos " target="_blank" rel="noopener noreferrer" className="hover:text-[#2C3E2D] transition duration-500" aria-label="Instagram"><Instagram size={20} strokeWidth={1.5} /></a>
-              <a href="https://www.facebook.com/drbeauty.ramos " target="_blank" rel="noopener noreferrer" className="hover:text-[#2C3E2D] transition duration-500" aria-label="Facebook"><Facebook size={20} strokeWidth={1.5} /></a>
+              <a href="https://www.instagram.com/drbeauty.ramos" target="_blank" rel="noopener noreferrer" className="hover:text-[#2C3E2D] transition duration-500" aria-label="Instagram"><Instagram size={20} strokeWidth={1.5} /></a>
+              <a href="https://www.facebook.com/drbeauty.ramos" target="_blank" rel="noopener noreferrer" className="hover:text-[#2C3E2D] transition duration-500" aria-label="Facebook"><Facebook size={20} strokeWidth={1.5} /></a>
             </div>
             <button 
               className="md:hidden text-[#C5A059]" 
@@ -218,7 +218,7 @@ export default function Home() {
               Tecnología avanzada, resultados reales.
             </p>
             <a 
-              href={`https://wa.me/ ${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_HERO)}`}
+              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_HERO)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block border border-[#C5A059] text-[#C5A059] hover:bg-[#C5A059] hover:text-white px-12 py-4 text-[10px] font-normal uppercase tracking-[0.3em] transition-all duration-700 shadow-sm"
@@ -322,7 +322,7 @@ export default function Home() {
                   <h3 className="text-xl md:text-3xl font-serif mb-5 text-[#2C3E2D]">{t.subtitulo}</h3>
                   <p className="text-[#666] text-sm md:text-base leading-relaxed mb-10 font-light flex-grow">{t.desc}</p>
                   <a 
-                    href={`https://wa.me/ ${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_FACIAL(t.subtitulo))}`} 
+                    href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_FACIAL(t.subtitulo))}`} 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="inline-block w-full text-center border border-[#C5A059] py-5 text-[10px] uppercase tracking-[0.3em] text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition-all duration-700 font-medium"
@@ -370,7 +370,7 @@ export default function Home() {
                   <h3 className="text-xl md:text-3xl font-serif mb-5 text-[#2C3E2D]">{t.subtitulo}</h3>
                   <p className="text-[#666] text-sm md:text-base leading-relaxed mb-10 font-light flex-grow">{t.desc}</p>
                   <a 
-                    href={`https://wa.me/ ${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_BIO(t.subtitulo))}`} 
+                    href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_BIO(t.subtitulo))}`} 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="inline-block w-full text-center border border-[#C5A059] py-5 text-[10px] uppercase tracking-[0.3em] text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition-all duration-700 font-medium"
@@ -418,7 +418,7 @@ export default function Home() {
                   <h3 className="text-xl md:text-3xl font-serif mb-5 text-[#2C3E2D]">{t.subtitulo}</h3>
                   <p className="text-[#666] text-sm md:text-base leading-relaxed mb-10 font-light flex-grow">{t.desc}</p>
                   <a 
-                    href={`https://wa.me/ ${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_CORP(t.subtitulo))}`} 
+                    href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_CORP(t.subtitulo))}`} 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="inline-block w-full text-center border border-[#C5A059] py-5 text-[10px] uppercase tracking-[0.3em] text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition-all duration-700 font-medium"
@@ -454,7 +454,7 @@ export default function Home() {
                   Plataforma multi-tecnología líder que combina Láser e IPL para el tratamiento de manchas, rosácea, lesiones vasculares y rejuvenecimiento cutáneo profundo.
                 </p>
                 <a 
-                  href={`https://wa.me/ ${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_NORDLYS)}`} 
+                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_NORDLYS)}`} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-[10px] uppercase tracking-[0.2em] border-b border-[#C5A059] pb-1 hover:text-[#C5A059] transition-colors"
@@ -477,7 +477,7 @@ export default function Home() {
                   Ultrasonido focalizado de alta intensidad. Genera un efecto lifting sin cirugía, tratando la flacidez facial y corporal mediante la estimulación de colágeno.
                 </p>
                 <a 
-                  href={`https://wa.me/ ${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_HIFU)}`} 
+                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_HIFU)}`} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-[10px] uppercase tracking-[0.2em] border-b border-[#C5A059] pb-1 hover:text-[#C5A059] transition-colors"
@@ -515,16 +515,16 @@ export default function Home() {
             </div>
             <div className="space-y-4 mb-10">
               {[
-                { name: "Modelación corporal y reducción de grasa", msg: "Hola! Me gustaría consultar por Modelación corporal y reducción de grasa." },
-                { name: "Cirugía de mamas", msg: "Hola! Me gustaría recibir información sobre Cirugía de mamas." },
-                { name: "Cirugía de glúteos", msg: "Hola! Solicito información sobre Cirugía de glúteos." },
-                { name: "Rejuvenecimiento y transformación facial", msg: "Hola! Me interesa el Rejuvenecimiento y transformación facial." },
-                { name: "Rejuvenecimiento vaginal", msg: "Hola! Deseo consultar por Rejuvenecimiento vaginal." }
+                { name: "Modelación corporal y reducción de grasa", msg: 'Hola! Me gustaría consultar por Modelación corporal y reducción de grasa.' },
+                { name: "Cirugía de mamas", msg: 'Hola! Me gustaría recibir información sobre Cirugía de mamas.' },
+                { name: "Cirugía de glúteos", msg: 'Hola! Solicito información sobre Cirugía de glúteos.' },
+                { name: "Rejuvenecimiento y transformación facial", msg: 'Hola! Me interesa el Rejuvenecimiento y transformación facial.' },
+                { name: "Rejuvenecimiento vaginal", msg: 'Hola! Deseo consultar por Rejuvenecimiento vaginal.' }
               ].map((item, idx) => (
                 <div key={idx} className="flex flex-col md:flex-row md:items-center justify-between border-b border-[#D4C5A1]/30 py-4 group">
                   <span className="text-[#2C2C2C] text-sm md:text-base font-light mb-2 md:mb-0 group-hover:translate-x-2 transition-transform duration-300">{item.name}</span>
                   <a 
-                    href={`https://wa.me/ ${WHATSAPP_NUMBER}?text=${encodeURIComponent(item.msg)}`}
+                    href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(item.msg)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[9px] uppercase tracking-[0.2em] text-[#C5A059] font-medium flex items-center gap-2 hover:text-[#2C3E2D] transition-colors"
@@ -535,7 +535,7 @@ export default function Home() {
               ))}
             </div>
             <a 
-              href={`https://wa.me/ ${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_CIRUGIA_GENERAL)}`}
+              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_CIRUGIA_GENERAL)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block w-full md:w-auto border border-[#2C3E2D] text-[#2C3E2D] hover:bg-[#2C3E2D] hover:text-white px-12 py-5 text-[10px] font-normal uppercase tracking-[0.3em] transition-all duration-500 text-center"
@@ -603,7 +603,7 @@ export default function Home() {
             <p className="text-[11px] uppercase tracking-[0.3em] text-[#666] mb-8">Ver más casos clínicos reales en nuestras redes</p>
             <div className="flex justify-center items-center">
               <a 
-                href="https://www.instagram.com/drbeauty.ramos " 
+                href="https://www.instagram.com/drbeauty.ramos" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 text-[#C5A059] hover:text-[#2C2C2C] transition-all group"
@@ -645,7 +645,7 @@ export default function Home() {
               <h4 className="text-[#C5A059] text-[10px] uppercase tracking-[0.4em] mb-4 font-medium">Turnos y Consultas</h4>
               <p className="text-[#999] text-[9px] uppercase tracking-widest mb-2">(Atención telefónica 24hs)</p>
               <a 
-                href={`https://wa.me/ ${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hola! Vengo de la web y quiero hacer una consulta.")}`}
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hola! Vengo de la web y quiero hacer una consulta.')}`}
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 text-[#2C2C2C] hover:text-[#C5A059] transition-colors duration-500 group"
@@ -670,7 +670,7 @@ export default function Home() {
             <div className="space-y-3">
               <h4 className="text-[#C5A059] text-[10px] uppercase tracking-[0.4em] mb-4 font-medium">Dirección</h4>
               <a 
-                href="https://www.google.com/maps/search/?api=1&query=Av.+De+Mayo+618 ,+Ramos+Mejia,+Buenos+Aires" 
+                href="https://www.google.com/maps/search/?api=1&query=Av.+De+Mayo+618,+Ramos+Mejia,+Buenos+Aires" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="group inline-flex flex-col items-center md:items-end"
