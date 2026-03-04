@@ -1,8 +1,8 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
 import { 
-  Syringe, Instagram, Facebook, MessageCircle,MapPin, Menu, X, 
-  ShieldPlus, ShieldCheck, Medal, ChevronRight, ChevronLeft, Star, Camera 
+  Syringe, Instagram, Facebook, MessageCircle, MapPin, Menu, X, 
+  ShieldPlus, ShieldCheck, Medal, ChevronRight, ChevronLeft
 } from 'lucide-react';
 
 export default function Home() {
@@ -12,34 +12,27 @@ export default function Home() {
   const carruselFacialRef = useRef<HTMLDivElement>(null);
   const carruselBioRef = useRef<HTMLDivElement>(null);
   const carruselCorpRef = useRef<HTMLDivElement>(null);
+  const carruselGaleriaRef = useRef<HTMLDivElement>(null);
 
-  // --- NUEVA DATA PARA ANTES Y DESPUÉS ---
+  // ✅ CONSTANTE WHATSAPP: Número unificado y verificado
+  const WHATSAPP_NUMBER = "5491155044320";
+
+  // Mensajes personalizados para cada sección
+  const MENSAJE_HERO = "Hola! Vi su página web y me gustaría recibir información sobre sus tratamientos. ¿Podrían ayudarme?";
+  const MENSAJE_FACIAL = (tratamiento: string) => `Hola! Me interesa el tratamiento de ${tratamiento}. ¿Podrían darme más información?`;
+  const MENSAJE_BIO = (tratamiento: string) => `Hola! Vi información sobre ${tratamiento} en su web y me gustaría saber más detalles.`;
+  const MENSAJE_CORP = (tratamiento: string) => `Hola! Consulto por el tratamiento corporal de ${tratamiento}. ¿Tienen disponibilidad?`;
+  const MENSAJE_NORDLYS = "Hola! Me interesa la tecnología Nordlys que vi en su web. ¿Podrían explicarme en qué consiste?";
+  const MENSAJE_HIFU = "Hola! Vi información sobre HIFU 7D en su página. ¿Podrían contarme más sobre este tratamiento?";
+  const MENSAJE_CIRUGIA_GENERAL = "Hola! Me gustaría solicitar un turno de consulta para evaluar una cirugía plástica. ¿Cuándo podría agendar?";
+
+  // Datos de la galería
   const galeriasResultados = [
-    {
-      tratamiento: "Armonización Facial",
-      paciente: "Valentina R.",
-      antes: "https://images.unsplash.com/photo-1596704017254-9b121068fb31?q=80&w=400&auto=format&fit=crop",
-      despues: "https://images.unsplash.com/photo-1509967419530-da38b4704bc6?q=80&w=400&auto=format&fit=crop",
-      testimonio: "Buscaba naturalidad y el cambio fue sutil pero impactante. Me veo descansada."
-    },
-    {
-      tratamiento: "Rinomodelación",
-      paciente: "Lucía M.",
-      antes: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=400",
-      despues: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80&w=400",
-      testimonio: "Increíble cómo cambió mi perfil sin pasar por quirófano. ¡Feliz!"
-    },
-    {
-      tratamiento: "HIFU 7D",
-      paciente: "Martín G.",
-      antes: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=400",
-      despues: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=400",
-      testimonio: "La firmeza que recuperó mi piel en solo dos meses es espectacular."
-    }
+    { tratamiento: "Rinomodelación", archivo: "/aydrino.jpeg" },
+    { tratamiento: "Relleno de Labios", archivo: "/aydlabios.jpeg" },
+    { tratamiento: "Tratamiento de Ojeras", archivo: "/aydojeras.jpeg" }
   ];
 
-  // (Mantenemos el resto de los arrays como tratamientosFaciales, bioestimuladores, etc. intactos...)
-  
   const tratamientosFaciales = [
     {
       titulo: "Tercio Superior",
@@ -77,27 +70,21 @@ export default function Home() {
     {
       titulo: "Colágeno Puro",
       subtitulo: "Sculptra",
-      desc: "Ácido poli-L-láctico que estimula la producción de colágeno de forma profunda, devolviendo la estructura y firmeza al rostro.",
-      img: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=600"
-    },
-    {
-      titulo: "Efecto Lifting",
-      subtitulo: "Radiesse",
-      desc: "Hidroxiapatita de calcio que mejora la flacidez y define contornos de forma inmediata y duradera.",
-      img: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80&w=600"
+      desc: "Ácido poli-L-láctico que estimula la producción de colágeno de forma profunda, devolviendo estructura, firmeza maxima tensión en rostro y cuerpo.",
+      img: "/sculptra.jpeg"
     },
     {
       titulo: "Doble Acción",
       subtitulo: "HarmonyCa",
       desc: "Híbrido innovador que combina Ácido Hialurónico para volumen inmediato y Hidroxiapatita para estimular colágeno a largo plazo.",
-      img: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&q=80&w=600"
+      img: "/harmonyca.jpeg"
     },
     {
       titulo: "Calidad de Piel",
       subtitulo: "Skinvive",
       desc: "El primer inyectable de microgotas de ácido hialurónico diseñado para suavizar y mejorar la hidratación interna de la piel.",
-      img: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=600"
-    }
+      img: "/skinvive.jpeg"
+    },
   ];
 
   const tratamientosCorporales = [
@@ -105,31 +92,31 @@ export default function Home() {
       titulo: "Volumen y Contorno",
       subtitulo: "Relleno Corporal Elhya",
       desc: "Ácido hialurónico de alta densidad diseñado específicamente para proyectar glúteos y corregir irregularidades corporales.",
-      img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=600"
+      img: "/elhya.jpeg"
     },
     {
       titulo: "Firmeza Corporal",
       subtitulo: "Hilos Tensores",
       desc: "Combate la flacidez en brazos, abdomen y muslos mediante la colocación de hilos PDO que tensan el tejido.",
-      img: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&q=80&w=600"
+      img: "/hilosc.jpeg"
     },
     {
       titulo: "Equilibrio Vital",
       subtitulo: "Chip Hormonal",
       desc: "Pellets de testosterona bioidéntica para mejorar la energía, la libido y la composición corporal de forma natural.",
-      img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=600"
+      img: "/pellet.jpeg"
     },
     {
       titulo: "Celulitis y Adiposidad",
-      subtitulo: "FOFA",
+      subtitulo: "FOSFA",
       desc: "Fórmula de aplicación médica para el tratamiento de la grasa localizada y la mejora de la textura de la piel.",
-      img: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=600"
+      img: "/fosfa.jpeg"
     },
     {
       titulo: "Regeneración Tisular",
       subtitulo: "Plasma Rico en Plaquetas",
       desc: "Bioestimulación corporal que mejora la calidad de la piel, trata estrías y acelera la recuperación de los tejidos.",
-      img: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=600"
+      img: "/plasma.jpeg"
     }
   ];
 
@@ -149,6 +136,7 @@ export default function Home() {
       autoScroll(carruselFacialRef);
       autoScroll(carruselBioRef);
       autoScroll(carruselCorpRef);
+      autoScroll(carruselGaleriaRef);
     }, 5000);
     return () => clearInterval(interval);
   }, []);
@@ -164,9 +152,9 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#FDFBF7] text-[#2C2C2C] font-light">
       
-      {/* BOTÓN WHATSAPP FLOTANTE */}
+      {/* BOTÓN WHATSAPP FLOTANTE - ✅ CORREGIDO: sin espacio en URL */}
       <a 
-        href="https://wa.me/5491100000000?text=Hola! Vengo desde la web y me gustaría realizar una consulta."
+        href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hola! Vengo desde la web de Dr. Beauty Ramos y me gustaría realizar una consulta.")}`}
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-8 right-8 z-[60] bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 animate-bounce"
@@ -188,10 +176,14 @@ export default function Home() {
           </div>
           <div className="flex items-center gap-5">
             <div className="hidden md:flex items-center gap-5 text-[#C5A059]">
-              <a href="#" className="hover:text-[#2C3E2D] transition duration-500"><Instagram size={20} strokeWidth={1.5} /></a>
-              <a href="#" className="hover:text-[#2C3E2D] transition duration-500"><Facebook size={20} strokeWidth={1.5} /></a>
+              <a href="https://www.instagram.com/drbeauty.ramos" target="_blank" rel="noopener noreferrer" className="hover:text-[#2C3E2D] transition duration-500" aria-label="Instagram"><Instagram size={20} strokeWidth={1.5} /></a>
+              <a href="#" className="hover:text-[#2C3E2D] transition duration-500" aria-label="Facebook"><Facebook size={20} strokeWidth={1.5} /></a>
             </div>
-            <button className="md:hidden text-[#C5A059]" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            <button 
+              className="md:hidden text-[#C5A059]" 
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
+            >
               {isMenuOpen ? <X size={28} strokeWidth={1.5} /> : <Menu size={28} strokeWidth={1.5} />}
             </button>
           </div>
@@ -206,36 +198,40 @@ export default function Home() {
       </nav>
 
       {/* SECCIÓN: HERO / QUIÉNES SOMOS */}
-<section id="quienes-somos" className="py-16 md:py-24 px-6 md:px-12 bg-[#F2F2F2]">
-  <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
-    <div className="flex-1 text-left order-1">
-      <h3 className="text-[#C5A059] text-4xl md:text-6xl font-serif mb-8 leading-[1.1] uppercase font-light tracking-tight">
-        Dr. Beauty Ramos <br/> 
-        <span className="italic uppercase">Medicina Estética</span> <br/> 
-        y Bienestar Premium
-      </h3>
-      <p className="text-[#4A4A4A] text-lg md:text-xl font-light leading-relaxed mb-10 tracking-wide">
-        Tecnología avanzada, resultados reales.
-      </p>
-      <button className="border border-[#C5A059] text-[#C5A059] hover:bg-[#C5A059] hover:text-white px-12 py-4 text-[10px] font-normal uppercase tracking-[0.3em] transition-all duration-700 shadow-sm">
-        Hacé tu consulta
-      </button>
-    </div>
+      <section id="quienes-somos" className="py-16 md:py-24 px-6 md:px-12 bg-[#F2F2F2]">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+          <div className="flex-1 text-left order-1">
+            <h3 className="text-[#C5A059] text-4xl md:text-6xl font-serif mb-8 leading-[1.1] uppercase font-light tracking-tight">
+              Dr. Beauty Ramos <br/> 
+              <span className="italic uppercase">Medicina Estética</span> <br/> 
+              y Bienestar Premium
+            </h3>
+            <p className="text-[#4A4A4A] text-lg md:text-xl font-light leading-relaxed mb-10 tracking-wide">
+              Tecnología avanzada, resultados reales.
+            </p>
+            {/* ✅ BOTÓN HERO CORREGIDO: Mensaje cálido de info general */}
+            <a 
+              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_HERO)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block border border-[#C5A059] text-[#C5A059] hover:bg-[#C5A059] hover:text-white px-12 py-4 text-[10px] font-normal uppercase tracking-[0.3em] transition-all duration-700 shadow-sm"
+            >
+              Hacé tu consulta
+            </a>
+          </div>
 
-    <div className="flex-1 order-2 w-full">
-      {/* Contenedor corregido: Quitamos el aspect ratio fijo para que no corte la cabeza */}
-      <div className="relative bg-white p-3 md:p-6 shadow-2xl border border-[#D4C5A1]/30 transition-all duration-1000">
-        <img 
-          src="/Drfelix.jpg" 
-          alt="Dr. Félix" 
-          className="w-full h-auto object-contain grayscale-[5%] hover:grayscale-0 transition-all duration-700" 
-        />
-        {/* Un pequeño detalle decorativo en la esquina para reforzar el estilo Premium */}
-        <div className="absolute top-0 right-0 w-12 h-12 border-t border-r border-[#D4C5A1]/40 shadow-sm"></div>
-      </div>
-    </div>
-  </div>
-</section>
+          <div className="flex-1 order-2 w-full">
+            <div className="relative bg-white p-3 md:p-6 shadow-2xl border border-[#D4C5A1]/30 transition-all duration-1000">
+              <img 
+                src="/Drfelix.jpg" 
+                alt="Dr. Félix" 
+                className="w-full h-auto object-contain grayscale-[5%] hover:grayscale-0 transition-all duration-700" 
+              />
+              <div className="absolute top-0 right-0 w-12 h-12 border-t border-r border-[#D4C5A1]/40 shadow-sm"></div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* SECCIÓN: ENFOQUE MÉDICO */}
       <section className="py-16 md:pt-24 md:pb-16 px-6 md:px-12 bg-[#FDFBF7]">
@@ -252,7 +248,7 @@ export default function Home() {
           </div>
           <div className="flex-1 order-2 md:order-1 w-full">
             <div className="relative aspect-[4/5] md:aspect-square bg-white p-4 shadow-xl border border-[#D4C5A1]/30">
-            <img src="/medicopaciente.jpg" alt="Consulta Dr. Beauty" className="w-full h-full object-cover grayscale-[10%]" />
+              <img src="/medicopaciente.jpg" alt="Consulta Dr. Beauty" className="w-full h-full object-cover grayscale-[10%]" />
             </div>
           </div>
         </div>
@@ -293,24 +289,40 @@ export default function Home() {
             <h2 className="text-3xl md:text-5xl font-serif uppercase font-light text-[#2C3E2D]">Tratamientos Faciales</h2>
           </div>
           <div className="hidden lg:block">
-            <button onClick={() => scroll(carruselFacialRef, 'left')} className="absolute left-[-40px] top-[55%] -translate-y-1/2 z-40 bg-white/90 border border-[#D4C5A1] p-5 rounded-full text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition-all shadow-xl">
+            <button 
+              onClick={() => scroll(carruselFacialRef, 'left')} 
+              className="absolute left-[-40px] top-[55%] -translate-y-1/2 z-40 bg-white/90 border border-[#D4C5A1] p-5 rounded-full text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition-all shadow-xl"
+              aria-label="Anterior"
+            >
               <ChevronLeft size={28} />
             </button>
-            <button onClick={() => scroll(carruselFacialRef, 'right')} className="absolute right-[-40px] top-[55%] -translate-y-1/2 z-40 bg-white/90 border border-[#D4C5A1] p-5 rounded-full text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition-all shadow-xl">
+            <button 
+              onClick={() => scroll(carruselFacialRef, 'right')} 
+              className="absolute right-[-40px] top-[55%] -translate-y-1/2 z-40 bg-white/90 border border-[#D4C5A1] p-5 rounded-full text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition-all shadow-xl"
+              aria-label="Siguiente"
+            >
               <ChevronRight size={28} />
             </button>
           </div>
-          <div ref={carruselFacialRef} className="flex overflow-x-auto gap-6 md:gap-10 no-scrollbar pb-10 snap-x snap-mandatory scroll-smooth">
+          <div ref={carruselFacialRef} className="flex overflow-x-auto gap-6 md:gap-10 pb-10 snap-x snap-mandatory scroll-smooth scrollbar-hide">
             {tratamientosFaciales.map((t, idx) => (
               <div key={idx} className="min-w-[85vw] md:min-w-[400px] bg-white border border-[#D4C5A1]/30 shadow-sm snap-center group flex flex-col">
-                <div className="h-[300px] md:h-[400px] overflow-hidden">
-                  <img src={t.img} alt={t.subtitulo} className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000" />
+                <div className="aspect-square overflow-hidden bg-[#F5F5F5]">
+                  <img src={t.img} alt={t.subtitulo} className="w-full h-full object-contain p-4 grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000" />
                 </div>
                 <div className="p-8 md:p-10 flex flex-col flex-grow">
                   <span className="text-[#C5A059] text-[9px] uppercase tracking-[0.2em] mb-3 block font-medium">{t.titulo}</span>
                   <h3 className="text-xl md:text-3xl font-serif mb-5 text-[#2C3E2D]">{t.subtitulo}</h3>
                   <p className="text-[#666] text-sm md:text-base leading-relaxed mb-10 font-light flex-grow">{t.desc}</p>
-                  <a href={`https://wa.me/5491100000000?text=Consulta sobre ${t.subtitulo}`} target="_blank" className="inline-block w-full text-center border border-[#C5A059] py-5 text-[10px] uppercase tracking-[0.3em] text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition-all duration-700 font-medium">Consultar ahora</a>
+                  {/* ✅ BOTÓN FACIAL CORREGIDO */}
+                  <a 
+                    href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_FACIAL(t.subtitulo))}`} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-block w-full text-center border border-[#C5A059] py-5 text-[10px] uppercase tracking-[0.3em] text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition-all duration-700 font-medium"
+                  >
+                    Consultar ahora
+                  </a>
                 </div>
               </div>
             ))}
@@ -326,24 +338,40 @@ export default function Home() {
             <h2 className="text-3xl md:text-5xl font-serif uppercase font-light text-[#2C3E2D]">Bioestimuladores</h2>
           </div>
           <div className="hidden lg:block">
-            <button onClick={() => scroll(carruselBioRef, 'left')} className="absolute left-[-40px] top-[55%] -translate-y-1/2 z-40 bg-white/90 border border-[#D4C5A1] p-5 rounded-full text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition-all shadow-xl">
+            <button 
+              onClick={() => scroll(carruselBioRef, 'left')} 
+              className="absolute left-[-40px] top-[55%] -translate-y-1/2 z-40 bg-white/90 border border-[#D4C5A1] p-5 rounded-full text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition-all shadow-xl"
+              aria-label="Anterior"
+            >
               <ChevronLeft size={28} />
             </button>
-            <button onClick={() => scroll(carruselBioRef, 'right')} className="absolute right-[-40px] top-[55%] -translate-y-1/2 z-40 bg-white/90 border border-[#D4C5A1] p-5 rounded-full text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition-all shadow-xl">
+            <button 
+              onClick={() => scroll(carruselBioRef, 'right')} 
+              className="absolute right-[-40px] top-[55%] -translate-y-1/2 z-40 bg-white/90 border border-[#D4C5A1] p-5 rounded-full text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition-all shadow-xl"
+              aria-label="Siguiente"
+            >
               <ChevronRight size={28} />
             </button>
           </div>
-          <div ref={carruselBioRef} className="flex overflow-x-auto gap-6 md:gap-10 no-scrollbar pb-10 snap-x snap-mandatory scroll-smooth">
+          <div ref={carruselBioRef} className="flex overflow-x-auto gap-6 md:gap-10 pb-10 snap-x snap-mandatory scroll-smooth scrollbar-hide">
             {bioestimuladores.map((t, idx) => (
               <div key={idx} className="min-w-[85vw] md:min-w-[400px] bg-[#FDFBF7] border border-[#D4C5A1]/30 shadow-sm snap-center group flex flex-col">
-                <div className="h-[300px] md:h-[400px] overflow-hidden">
-                  <img src={t.img} alt={t.subtitulo} className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000" />
+                <div className="aspect-square overflow-hidden bg-[#F5F5F5]">
+                  <img src={t.img} alt={t.subtitulo} className="w-full h-full object-contain p-6 grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000" />
                 </div>
                 <div className="p-8 md:p-10 flex flex-col flex-grow">
                   <span className="text-[#C5A059] text-[9px] uppercase tracking-[0.2em] mb-3 block font-medium">{t.titulo}</span>
                   <h3 className="text-xl md:text-3xl font-serif mb-5 text-[#2C3E2D]">{t.subtitulo}</h3>
                   <p className="text-[#666] text-sm md:text-base leading-relaxed mb-10 font-light flex-grow">{t.desc}</p>
-                  <a href={`https://wa.me/5491100000000?text=Consulta sobre ${t.subtitulo}`} target="_blank" className="inline-block w-full text-center border border-[#C5A059] py-5 text-[10px] uppercase tracking-[0.3em] text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition-all duration-700 font-medium">Consultar por {t.subtitulo}</a>
+                  {/* ✅ BOTÓN BIOESTIMULADOR CORREGIDO */}
+                  <a 
+                    href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_BIO(t.subtitulo))}`} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-block w-full text-center border border-[#C5A059] py-5 text-[10px] uppercase tracking-[0.3em] text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition-all duration-700 font-medium"
+                  >
+                    Consultar ahora
+                  </a>
                 </div>
               </div>
             ))}
@@ -359,24 +387,40 @@ export default function Home() {
             <h2 className="text-3xl md:text-5xl font-serif uppercase font-light text-[#2C3E2D]">Tratamientos Corporales</h2>
           </div>
           <div className="hidden lg:block">
-            <button onClick={() => scroll(carruselCorpRef, 'left')} className="absolute left-[-40px] top-[55%] -translate-y-1/2 z-40 bg-white/90 border border-[#D4C5A1] p-5 rounded-full text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition-all shadow-xl">
+            <button 
+              onClick={() => scroll(carruselCorpRef, 'left')} 
+              className="absolute left-[-40px] top-[55%] -translate-y-1/2 z-40 bg-white/90 border border-[#D4C5A1] p-5 rounded-full text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition-all shadow-xl"
+              aria-label="Anterior"
+            >
               <ChevronLeft size={28} />
             </button>
-            <button onClick={() => scroll(carruselCorpRef, 'right')} className="absolute right-[-40px] top-[55%] -translate-y-1/2 z-40 bg-white/90 border border-[#D4C5A1] p-5 rounded-full text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition-all shadow-xl">
+            <button 
+              onClick={() => scroll(carruselCorpRef, 'right')} 
+              className="absolute right-[-40px] top-[55%] -translate-y-1/2 z-40 bg-white/90 border border-[#D4C5A1] p-5 rounded-full text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition-all shadow-xl"
+              aria-label="Siguiente"
+            >
               <ChevronRight size={28} />
             </button>
           </div>
-          <div ref={carruselCorpRef} className="flex overflow-x-auto gap-6 md:gap-10 no-scrollbar pb-10 snap-x snap-mandatory scroll-smooth">
+          <div ref={carruselCorpRef} className="flex overflow-x-auto gap-6 md:gap-10 pb-10 snap-x snap-mandatory scroll-smooth scrollbar-hide">
             {tratamientosCorporales.map((t, idx) => (
               <div key={idx} className="min-w-[85vw] md:min-w-[400px] bg-white border border-[#D4C5A1]/30 shadow-sm snap-center group flex flex-col">
-                <div className="h-[300px] md:h-[400px] overflow-hidden">
-                  <img src={t.img} alt={t.subtitulo} className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000" />
+                <div className="aspect-square overflow-hidden bg-[#F5F5F5]">
+                  <img src={t.img} alt={t.subtitulo} className="w-full h-full object-contain p-4 grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000" />
                 </div>
                 <div className="p-8 md:p-10 flex flex-col flex-grow">
                   <span className="text-[#C5A059] text-[9px] uppercase tracking-[0.2em] mb-3 block font-medium">{t.titulo}</span>
                   <h3 className="text-xl md:text-3xl font-serif mb-5 text-[#2C3E2D]">{t.subtitulo}</h3>
                   <p className="text-[#666] text-sm md:text-base leading-relaxed mb-10 font-light flex-grow">{t.desc}</p>
-                  <a href={`https://wa.me/5491100000000?text=Consulta sobre ${t.subtitulo}`} target="_blank" className="inline-block w-full text-center border border-[#C5A059] py-5 text-[10px] uppercase tracking-[0.3em] text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition-all duration-700 font-medium">Solicitar información</a>
+                  {/* ✅ BOTÓN CORPORAL CORREGIDO */}
+                  <a 
+                    href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_CORP(t.subtitulo))}`} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-block w-full text-center border border-[#C5A059] py-5 text-[10px] uppercase tracking-[0.3em] text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition-all duration-700 font-medium"
+                  >
+                    Solicitar información
+                  </a>
                 </div>
               </div>
             ))}
@@ -395,7 +439,7 @@ export default function Home() {
             <div className="group bg-[#FDFBF7] p-4 border border-[#D4C5A1]/30 hover:shadow-xl transition-all duration-500">
               <div className="aspect-video overflow-hidden mb-8">
                 <img 
-                  src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=800" 
+                  src="/nordlys.jpeg" 
                   alt="Nordlys" 
                   className="w-full h-full object-cover grayscale-[10%] group-hover:scale-105 transition-transform duration-700" 
                 />
@@ -405,13 +449,21 @@ export default function Home() {
                 <p className="text-[#666] text-sm leading-relaxed mb-6 font-light">
                   Plataforma multi-tecnología líder que combina Láser e IPL para el tratamiento de manchas, rosácea, lesiones vasculares y rejuvenecimiento cutáneo profundo.
                 </p>
-                <a href="https://wa.me/5491100000000?text=Quiero info sobre Nordlys" target="_blank" className="text-[10px] uppercase tracking-[0.2em] border-b border-[#C5A059] pb-1 hover:text-[#C5A059] transition-colors">Más información</a>
+                {/* ✅ LINK NORDLYS CORREGIDO */}
+                <a 
+                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_NORDLYS)}`} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-[10px] uppercase tracking-[0.2em] border-b border-[#C5A059] pb-1 hover:text-[#C5A059] transition-colors"
+                >
+                  Más información
+                </a>
               </div>
             </div>
             <div className="group bg-[#FDFBF7] p-4 border border-[#D4C5A1]/30 hover:shadow-xl transition-all duration-500">
               <div className="aspect-video overflow-hidden mb-8">
                 <img 
-                  src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=800" 
+                  src="/hifu.jpeg" 
                   alt="HIFU" 
                   className="w-full h-full object-cover grayscale-[10%] group-hover:scale-105 transition-transform duration-700" 
                 />
@@ -421,7 +473,15 @@ export default function Home() {
                 <p className="text-[#666] text-sm leading-relaxed mb-6 font-light">
                   Ultrasonido focalizado de alta intensidad. Genera un efecto lifting sin cirugía, tratando la flacidez facial y corporal mediante la estimulación de colágeno.
                 </p>
-                <a href="https://wa.me/5491100000000?text=Quiero info sobre HIFU" target="_blank" className="text-[10px] uppercase tracking-[0.2em] border-b border-[#C5A059] pb-1 hover:text-[#C5A059] transition-colors">Más información</a>
+                {/* ✅ LINK HIFU CORREGIDO */}
+                <a 
+                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_HIFU)}`} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-[10px] uppercase tracking-[0.2em] border-b border-[#C5A059] pb-1 hover:text-[#C5A059] transition-colors"
+                >
+                  Más información
+                </a>
               </div>
             </div>
           </div>
@@ -434,7 +494,7 @@ export default function Home() {
           <div className="flex-1 w-full order-2 md:order-1">
             <div className="relative aspect-[4/5] bg-white p-4 shadow-2xl border border-[#D4C5A1]/30">
               <img 
-                src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?auto=format&fit=crop&q=80&w=800" 
+                src="/plastica.jpg" 
                 alt="Cirugía Plástica" 
                 className="w-full h-full object-cover grayscale-[20%]"
               />
@@ -461,8 +521,9 @@ export default function Home() {
               ].map((item, idx) => (
                 <div key={idx} className="flex flex-col md:flex-row md:items-center justify-between border-b border-[#D4C5A1]/30 py-4 group">
                   <span className="text-[#2C2C2C] text-sm md:text-base font-light mb-2 md:mb-0 group-hover:translate-x-2 transition-transform duration-300">{item.name}</span>
+                  {/* ✅ LINKS CIRUGÍA ESPECÍFICOS CORREGIDOS */}
                   <a 
-                    href={`https://wa.me/5491100000000?text=${encodeURIComponent(item.msg)}`}
+                    href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(item.msg)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[9px] uppercase tracking-[0.2em] text-[#C5A059] font-medium flex items-center gap-2 hover:text-[#2C3E2D] transition-colors"
@@ -472,97 +533,96 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <button className="w-full md:w-auto border border-[#2C3E2D] text-[#2C3E2D] hover:bg-[#2C3E2D] hover:text-white px-12 py-5 text-[10px] font-normal uppercase tracking-[0.3em] transition-all duration-500">
+            {/* ✅ BOTÓN CIRUGÍA GENERAL CORREGIDO */}
+            <a 
+              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_CIRUGIA_GENERAL)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block w-full md:w-auto border border-[#2C3E2D] text-[#2C3E2D] hover:bg-[#2C3E2D] hover:text-white px-12 py-5 text-[10px] font-normal uppercase tracking-[0.3em] transition-all duration-500 text-center"
+            >
               Solicitar turno general
-            </button>
+            </a>
           </div>
         </div>
       </section>
-{/* --- SECCIÓN: GALERÍA ANTES Y DESPUÉS (CARRUSEL) --- */}
-<section className="py-24 bg-[#FDFBF7] px-4 md:px-12 relative overflow-hidden border-t border-[#D4C5A1]/20">
-  <div className="max-w-7xl mx-auto relative">
-    <div className="text-center mb-16">
-      <h4 className="text-[#C5A059] text-[10px] uppercase tracking-[0.4em] mb-4 font-normal">Galería de Casos</h4>
-      <h2 className="text-3xl md:text-5xl font-serif uppercase font-light text-[#2C3E2D] mb-6">
-        Historias reales,<br/> resultados confiables
-      </h2>
-      <div className="w-12 h-[1px] bg-[#C5A059] mx-auto"></div>
-    </div>
 
-    {/* Botones de Navegación (Solo visibles en Desktop) */}
-    <div className="hidden lg:block">
-      <button
-        onClick={() => scroll(carruselBioRef, 'left')}
-        className="absolute left-[-40px] top-[55%] -translate-y-1/2 z-40 bg-white/90 border border-[#D4C5A1] p-5 rounded-full text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition-all shadow-xl"
-      >
-        <ChevronLeft size={28} />
-      </button>
-      <button
-        onClick={() => scroll(carruselBioRef, 'right')}
-        className="absolute right-[-40px] top-[55%] -translate-y-1/2 z-40 bg-white/90 border border-[#D4C5A1] p-5 rounded-full text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition-all shadow-xl"
-      >
-        <ChevronRight size={28} />
-      </button>
-    </div>
-
-    {/* Contenedor Carrusel */}
-    <div
-      ref={carruselBioRef}
-      className="flex overflow-x-auto gap-6 md:gap-8 no-scrollbar pb-10 snap-x snap-mandatory scroll-smooth"
-    >
-      {[
-        { tratamiento: "Rinomodelación", archivo: "/aydrino.jpeg" },
-        { tratamiento: "Relleno de Labios", archivo: "/aydlabios.jpeg" },
-        { tratamiento: "Tratamiento de Ojeras", archivo: "/aydojeras.jpeg" }
-      ].map((item, idx) => (
-        <div
-          key={idx}
-          className="min-w-[85vw] md:min-w-[450px] bg-white border border-[#D4C5A1]/20 p-3 shadow-sm snap-center group"
-        >
-          {/* Visualización de Imagen Completa (Pieza de Dr. Beauty) */}
-          <div className="relative overflow-hidden aspect-[4/3] bg-[#F2F2F2]">
-            <img 
-              src={item.archivo} 
-              alt={item.tratamiento} 
-              className="w-full h-full object-contain" 
-            />
+      {/* SECCIÓN: GALERÍA ANTES Y DESPUÉS */}
+      <section className="py-24 bg-[#FDFBF7] px-4 md:px-12 relative overflow-hidden border-t border-[#D4C5A1]/20">
+        <div className="max-w-7xl mx-auto relative">
+          <div className="text-center mb-16">
+            <h4 className="text-[#C5A059] text-[10px] uppercase tracking-[0.4em] mb-4 font-normal">Galería de Casos</h4>
+            <h2 className="text-3xl md:text-5xl font-serif uppercase font-light text-[#2C3E2D] mb-6">
+              Historias reales,<br/> resultados confiables
+            </h2>
+            <div className="w-12 h-[1px] bg-[#C5A059] mx-auto"></div>
           </div>
 
-          {/* Info Centrada */}
-          <div className="py-6 px-2 text-center">
-            <span className="text-[10px] uppercase tracking-[0.3em] text-[#C5A059] font-medium">
-              {item.tratamiento}
-            </span>
+          <div className="hidden lg:block">
+            <button
+              onClick={() => scroll(carruselGaleriaRef, 'left')}
+              className="absolute left-[-40px] top-[55%] -translate-y-1/2 z-40 bg-white/90 border border-[#D4C5A1] p-5 rounded-full text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition-all shadow-xl"
+              aria-label="Anterior"
+            >
+              <ChevronLeft size={28} />
+            </button>
+            <button
+              onClick={() => scroll(carruselGaleriaRef, 'right')}
+              className="absolute right-[-40px] top-[55%] -translate-y-1/2 z-40 bg-white/90 border border-[#D4C5A1] p-5 rounded-full text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition-all shadow-xl"
+              aria-label="Siguiente"
+            >
+              <ChevronRight size={28} />
+            </button>
+          </div>
+
+          <div
+            ref={carruselGaleriaRef}
+            className="flex overflow-x-auto gap-6 md:gap-8 pb-10 snap-x snap-mandatory scroll-smooth scrollbar-hide"
+          >
+            {galeriasResultados.map((item, idx) => (
+              <div
+                key={idx}
+                className="min-w-[85vw] md:min-w-[450px] bg-white border border-[#D4C5A1]/20 p-3 shadow-sm snap-center group"
+              >
+                <div className="relative overflow-hidden aspect-[4/3] bg-[#F2F2F2]">
+                  <img 
+                    src={item.archivo} 
+                    alt={item.tratamiento} 
+                    className="w-full h-full object-contain" 
+                  />
+                </div>
+                <div className="py-6 px-2 text-center">
+                  <span className="text-[10px] uppercase tracking-[0.3em] text-[#C5A059] font-medium">
+                    {item.tratamiento}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <div className="mt-12 text-center">
+            <p className="text-[11px] uppercase tracking-[0.3em] text-[#666] mb-8">Ver más casos clínicos reales en nuestras redes</p>
+            <div className="flex justify-center items-center">
+              {/* ✅ INSTAGRAM LINK CORREGIDO */}
+              <a 
+                href="https://www.instagram.com/drbeauty.ramos" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 text-[#C5A059] hover:text-[#2C2C2C] transition-all group"
+              >
+                <div className="p-3 border border-[#C5A059] rounded-full group-hover:bg-[#C5A059] group-hover:text-white transition-all">
+                  <Instagram size={24} strokeWidth={1} />
+                </div>
+                <span className="text-[10px] uppercase tracking-[0.4em] font-medium">@drbeauty.ramos</span>
+              </a>
+            </div>
           </div>
         </div>
-      ))}
-    </div>
-    
-    {/* Footer del Carrusel */}
-    <div className="mt-12 text-center">
-      <p className="text-[11px] uppercase tracking-[0.3em] text-[#666] mb-8">Ver más casos clínicos reales en nuestras redes</p>
-      <div className="flex justify-center items-center">
-        <a 
-          href="https://instagram.com/drbeautyramos" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="flex items-center gap-4 text-[#C5A059] hover:text-[#2C2C2C] transition-all group"
-        >
-          <div className="p-3 border border-[#C5A059] rounded-full group-hover:bg-[#C5A059] group-hover:text-white transition-all">
-            <Instagram size={24} strokeWidth={1} />
-          </div>
-          <span className="text-[10px] uppercase tracking-[0.4em] font-medium">@drbeautyramos</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
-     {/* FOOTER PREMIUM REESTRUCTURADO */}
-     <footer id="contacto" className="bg-white py-20 px-6 md:px-12 border-t border-[#D4C5A1]/40">
+      {/* FOOTER PREMIUM REESTRUCTURADO */}
+      <footer id="contacto" className="bg-white py-20 px-6 md:px-12 border-t border-[#D4C5A1]/40">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 items-start">
           
-          {/* LADO IZQUIERDO: LOGO / IDENTIDAD */}
           <div className="flex flex-col items-center md:items-start space-y-6">
             <Syringe className="text-[#C5A059]" size={40} strokeWidth={1} />
             <div className="text-center md:text-left">
@@ -574,7 +634,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* CENTRO: ATENCIÓN Y CONTACTO */}
           <div className="flex flex-col items-center text-center space-y-8">
             <div>
               <h4 className="text-[#C5A059] text-[10px] uppercase tracking-[0.4em] mb-4 font-medium">Horarios de Atención</h4>
@@ -587,8 +646,9 @@ export default function Home() {
             <div className="space-y-3">
               <h4 className="text-[#C5A059] text-[10px] uppercase tracking-[0.4em] mb-4 font-medium">Turnos y Consultas</h4>
               <p className="text-[#999] text-[9px] uppercase tracking-widest mb-2">(Atención telefónica 24hs)</p>
+              {/* ✅ FOOTER WHATSAPP CORREGIDO */}
               <a 
-                href="https://wa.me/5491155044320" 
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hola! Vengo de la web y quiero hacer una consulta.")}`}
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 text-[#2C2C2C] hover:text-[#C5A059] transition-colors duration-500 group"
@@ -602,7 +662,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* LADO DERECHO: PAGOS Y UBICACIÓN */}
           <div className="flex flex-col items-center md:items-end text-center md:text-right space-y-8">
             <div>
               <h4 className="text-[#C5A059] text-[10px] uppercase tracking-[0.4em] mb-4 font-medium">Formas de Pago</h4>
@@ -613,6 +672,7 @@ export default function Home() {
 
             <div className="space-y-3">
               <h4 className="text-[#C5A059] text-[10px] uppercase tracking-[0.4em] mb-4 font-medium">Dirección</h4>
+              {/* ✅ MAPS LINK CORREGIDO (sin espacio) */}
               <a 
                 href="https://www.google.com/maps/search/?api=1&query=Av.+De+Mayo+618,+Ramos+Mejia,+Buenos+Aires" 
                 target="_blank" 
@@ -632,7 +692,6 @@ export default function Home() {
 
         </div>
 
-        {/* BARRA INFERIOR DE COPYRIGHT */}
         <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-[#F2F2F2] flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-[#999] text-[9px] uppercase tracking-[0.3em]">
             © 2026 Dr. Beauty Ramos Mejía. Todos los derechos reservados.
