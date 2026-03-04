@@ -283,7 +283,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto text-center">
           <div className="w-12 h-[1px] bg-[#C5A059] mx-auto mb-8"></div>
           <h2 className="text-[#C5A059] text-2xl md:text-4xl font-serif italic font-light leading-relaxed tracking-wide">
-            'En Dr. Beauty Ramos realzamos tu belleza natural, priorizando tu salud, armonía y seguridad en cada tratamiento.'
+            En Dr. Beauty Ramos realzamos tu belleza natural, priorizando tu salud, armonía y seguridad en cada tratamiento.
           </h2>
           <div className="w-12 h-[1px] bg-[#C5A059] mx-auto mt-8"></div>
         </div>
