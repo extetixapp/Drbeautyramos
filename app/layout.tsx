@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from 'next';
+import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 
@@ -7,7 +7,8 @@ const inter = Inter({
   display: 'swap',
 });
 
-export const viewport: Viewport = {
+// Viewport como metadata separada (Next.js 14+)
+export const viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
@@ -15,7 +16,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://drbeautyramos.vercel.app'),  // ← URL actual
+  metadataBase: new URL('https://drbeautyramos.vercel.app'),
   title: {
     default: 'Dr. Beauty Ramos | Medicina Estética & Bienestar Premium',
     template: '%s | Dr. Beauty Ramos',
@@ -111,7 +112,6 @@ export default function RootLayout({
   return (
     <html lang="es-AR" dir="ltr">
       <head>
-        {/* Forzar meta tags adicionales */}
         <meta property="og:image:secure_url" content="https://drbeautyramos.vercel.app/og-image.jpg" />
         <meta property="og:image:type" content="image/jpeg" />
       </head>
