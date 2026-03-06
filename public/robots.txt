@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://drbeautyramos.com/sitemap.xml
