@@ -16,7 +16,7 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://drbeautyramos.vercel.app'),
+  metadataBase: new URL('https://drbeautyramos.com'),
   title: {
     default: 'Dr. Beauty Ramos | Medicina Estética & Bienestar Premium',
     template: '%s | Dr. Beauty Ramos',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ 
     name: 'Dr. Daniel Félix',
-    url: 'https://drbeautyramos.vercel.app'
+    url: 'https://drbeautyramos.com'
   }],
   creator: 'Dr. Beauty Ramos',
   publisher: 'Dr. Beauty Ramos',
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'es_AR',
-    url: 'https://drbeautyramos.vercel.app',
+    url: 'https://drbeautyramos.com',
     siteName: 'Dr. Beauty Ramos',
     title: 'Dr. Beauty Ramos | Medicina Estética & Bienestar Premium',
     description: 'Transformamos la estética en salud. Tecnología avanzada Nordlys y HIFU 7D, resultados reales. Más de 25 años de trayectoria en Ramos Mejía.',
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
       {
         url: '/og-image.jpg',
         width: 1200,
-        height: 630,
+        height: 628,
         alt: 'Dr. Beauty Ramos - Clínica de Medicina Estética en Ramos Mejía',
         type: 'image/jpeg',
       },
@@ -94,6 +94,13 @@ export const metadata: Metadata = {
     apple: [
       { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
     ],
+    other: [
+      {
+        rel: 'mask-icon',
+        url: '/safari-pinned-tab.svg',
+        color: '#C5A059',
+      },
+    ],
   },
   manifest: '/site.webmanifest',
   other: {
@@ -112,8 +119,10 @@ export default function RootLayout({
   return (
     <html lang="es-AR" dir="ltr">
       <head>
-        <meta property="og:image:secure_url" content="https://drbeautyramos.vercel.app/og-image.jpg" />
+        <meta property="og:image:secure_url" content="https://drbeautyramos.com/og-image.jpg" />
         <meta property="og:image:type" content="image/jpeg" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="/favicon.ico" />
       </head>
       <body className={`${inter.className} antialiased`}>
         {children}
