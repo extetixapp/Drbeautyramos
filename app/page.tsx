@@ -515,12 +515,12 @@ export default function Home() {
             </div>
             <div className="space-y-4 mb-10">
               {[
-                { name: "Modelación corporal y reducción de grasa", msg: 'Hola! Me gustaría consultar por Modelación corporal y reducción de grasa.' },
-                { name: "Cirugía de mamas", msg: 'Hola! Me gustaría recibir información sobre Cirugía de mamas.' },
-                { name: "Cirugía de glúteos", msg: 'Hola! Solicito información sobre Cirugía de glúteos.' },
-                { name: "Rejuvenecimiento y transformación facial", msg: 'Hola! Me interesa el Rejuvenecimiento y transformación facial.' },
+                { name: "Liposuccion", msg: 'Hola! Me gustaría consultar por Liposuccion.' },
+                { name: "MELA", msg: 'Hola! Me gustaría recibir información sobre MELA.' },
+                { name: "Aumento mamario", msg: 'Hola! Solicito información sobre Aumento mamario.' },
+                { name: "Bichectomia", msg: 'Hola! Me gustaria recibir sobre Bichectomia.' },
                { name: "Rinoplastia", msg: 'Hola! Deseo consultar por la Cirugia de rinoplastia.' },
-               { name: "Blefaroplastia", msg: 'Hola! Deseo consultar por la Cirugia de Blefaroplastia.' }
+               { name: "Blefaroplastia", msg: 'Hola! Deseo consultar por la Cirugia de Blefaroplastia.' },
               ].map((item, idx) => (
                 <div key={idx} className="flex flex-col md:flex-row md:items-center justify-between border-b border-[#D4C5A1]/30 py-4 group">
                   <span className="text-[#2C2C2C] text-sm md:text-base font-light mb-2 md:mb-0 group-hover:translate-x-2 transition-transform duration-300">{item.name}</span>
