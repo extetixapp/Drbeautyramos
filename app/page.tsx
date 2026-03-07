@@ -432,8 +432,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECCIÓN: APARATOLOGÍA */}
-      <section id="aparatologia" className="py-24 bg-white px-6 md:px-12 border-t border-[#D4C5A1]/20">
+     {/* SECCIÓN: APARATOLOGÍA */}
+     <section id="aparatologia" className="py-24 bg-white px-6 md:px-12 border-t border-[#D4C5A1]/20">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h4 className="text-[#C5A059] text-[10px] uppercase tracking-[0.4em] mb-4 font-normal">Alta Tecnología Médica</h4>
@@ -441,11 +441,11 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="group bg-[#FDFBF7] p-4 border border-[#D4C5A1]/30 hover:shadow-xl transition-all duration-500">
-              <div className="aspect-video overflow-hidden mb-8">
+              <div className="aspect-[3/4] overflow-hidden mb-8">
                 <img 
                   src="/nordlys.jpeg" 
                   alt="Nordlys" 
-                  className="w-full h-full object-cover grayscale-[10%] group-hover:scale-105 transition-transform duration-700" 
+                  className="w-full h-full object-cover object-center grayscale-[10%] group-hover:scale-105 transition-transform duration-700" 
                 />
               </div>
               <div className="px-4 pb-4 text-center">
@@ -454,7 +454,7 @@ export default function Home() {
                   Plataforma multi-tecnología líder que combina Láser e IPL para el tratamiento de manchas, rosácea, lesiones vasculares y rejuvenecimiento cutáneo profundo.
                 </p>
                 <a 
-                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_NORDLYS)}`} 
+                  href={`https://wa.me/ ${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_NORDLYS)}`} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-[10px] uppercase tracking-[0.2em] border-b border-[#C5A059] pb-1 hover:text-[#C5A059] transition-colors"
@@ -464,20 +464,20 @@ export default function Home() {
               </div>
             </div>
             <div className="group bg-[#FDFBF7] p-4 border border-[#D4C5A1]/30 hover:shadow-xl transition-all duration-500">
-              <div className="aspect-video overflow-hidden mb-8">
+              <div className="aspect-[3/4] overflow-hidden mb-8">
                 <img 
-                  src="/hifu.jpeg" 
+                  src="/hifu.jpg" 
                   alt="HIFU" 
-                  className="w-full h-full object-cover grayscale-[10%] group-hover:scale-105 transition-transform duration-700" 
+                  className="w-full h-full object-cover object-center grayscale-[10%] group-hover:scale-105 transition-transform duration-700" 
                 />
               </div>
               <div className="px-4 pb-4 text-center">
-                <h3 className="text-[#C5A059] text-2xl font-serif mb-4 uppercase tracking-wider">HIFU 7D</h3>
+                <h3 className="text-[#C5A059] text-2xl font-serif mb-4 uppercase tracking-wider">HIFU 25D Liposonix</h3>
                 <p className="text-[#666] text-sm leading-relaxed mb-6 font-light">
                   Ultrasonido focalizado de alta intensidad. Genera un efecto lifting sin cirugía, tratando la flacidez facial y corporal mediante la estimulación de colágeno.
                 </p>
                 <a 
-                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_HIFU)}`} 
+                  href={`https://wa.me/ ${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_HIFU)}`} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-[10px] uppercase tracking-[0.2em] border-b border-[#C5A059] pb-1 hover:text-[#C5A059] transition-colors"
@@ -519,7 +519,8 @@ export default function Home() {
                 { name: "Cirugía de mamas", msg: 'Hola! Me gustaría recibir información sobre Cirugía de mamas.' },
                 { name: "Cirugía de glúteos", msg: 'Hola! Solicito información sobre Cirugía de glúteos.' },
                 { name: "Rejuvenecimiento y transformación facial", msg: 'Hola! Me interesa el Rejuvenecimiento y transformación facial.' },
-                { name: "Rejuvenecimiento vaginal", msg: 'Hola! Deseo consultar por Rejuvenecimiento vaginal.' }
+               { name: "Rinoplastia", msg: 'Hola! Deseo consultar por la Cirugia de rinoplastia.' },
+               { name: "Blefaroplastia", msg: 'Hola! Deseo consultar por la Cirugia de Blefaroplastia.' }
               ].map((item, idx) => (
                 <div key={idx} className="flex flex-col md:flex-row md:items-center justify-between border-b border-[#D4C5A1]/30 py-4 group">
                   <span className="text-[#2C2C2C] text-sm md:text-base font-light mb-2 md:mb-0 group-hover:translate-x-2 transition-transform duration-300">{item.name}</span>
