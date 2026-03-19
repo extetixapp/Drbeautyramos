@@ -171,7 +171,7 @@ export default function Home() {
             <img 
               src="/logo.jpg" 
               alt="Dr. Beauty Ramos" 
-              className="h-40 md:h-56 w-auto object-contain"
+              className="h-16 md:h-20 w-auto object-contain"
             />
             
           </div>
