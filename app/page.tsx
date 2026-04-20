@@ -217,7 +217,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
           <div className="flex-1 text-left order-1">
             <h3 className="text-[#C5A059] text-4xl md:text-6xl font-serif mb-8 leading-[1.1] uppercase font-light tracking-tight">
-              Dr. Beauty Ramos <br/> 
+              Dr. Beauty Ramos Mejia<br/> 
               <span className="italic uppercase">Medicina Estética</span> <br/> 
               y Bienestar Premium
             </h3>
@@ -255,7 +255,7 @@ export default function Home() {
               Cuidamos tu belleza <br/> con un enfoque <br/> médico profesional
             </h3>
             <div className="space-y-6 text-[#4A4A4A] text-base md:text-lg font-light leading-relaxed tracking-wide">
-              <p>En <span className="italic">Dr. Beauty Ramos</span>, transformamos la estética en salud.</p>
+              <p>En <span className="italic">Dr. Beauty Ramos Mejia</span>, transformamos la estética en salud.</p>
               <p>Con más de 25 años de trayectoria liderados por el prestigioso Dr. Daniel Félix, contamos con un equipo de alto nivel médico y productos premium con certificaciones FDA y ANMAT.</p>
               <p>Somos la red de medicina estética más extensa del país con más de 18 clínicas y miles de pacientes que confían en nosotros.</p>
             </div>

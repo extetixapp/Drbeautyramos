@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import Script from 'next/script'; // Importamos Script para el Tag de Google
 
 const inter = Inter({ 
   subsets: ['latin'],
   display: 'swap',
 });
 
-// Viewport como metadata separada (Next.js 14+)
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
@@ -21,10 +21,10 @@ export const metadata: Metadata = {
     default: 'Dr. Beauty Ramos | Medicina Estética & Bienestar Premium',
     template: '%s | Dr. Beauty Ramos',
   },
-  description: 'Clínica de medicina estética líder en Ramos Mejía. Tratamientos faciales, corporales, bioestimuladores, cirugía plástica con el Dr. Daniel Félix. Más de 25 años de experiencia.',
+  description: 'Clínica de medicina estética líder en Ramos Mejía. Tratamientos faciales, corporales, bioestimuladores y cirugía plástica.',
   keywords: [
     'medicina estética Ramos Mejía',
-    'botox Ramos Mejía',
+    'toxina botulínica Ramos Mejía', // CAMBIO: Usamos término médico aceptado
     'ácido hialurónico',
     'tratamientos faciales',
     'bioestimuladores Sculptra',
@@ -36,78 +36,19 @@ export const metadata: Metadata = {
     'Nordlys',
     'HIFU 7D',
   ],
-  authors: [{ 
-    name: 'Dr. Daniel Félix',
-    url: 'https://drbeautyramos.com'
-  }],
-  creator: 'Dr. Beauty Ramos',
-  publisher: 'Dr. Beauty Ramos',
-  alternates: {
-    canonical: '/',
-    languages: {
-      'es-AR': '/',
-    },
-  },
+  authors: [{ name: 'Dr. Daniel Félix' }],
   openGraph: {
     type: 'website',
     locale: 'es_AR',
     url: 'https://drbeautyramos.com',
     siteName: 'Dr. Beauty Ramos',
     title: 'Dr. Beauty Ramos | Medicina Estética & Bienestar Premium',
-    description: 'Transformamos la estética en salud. Tecnología avanzada Nordlys y HIFU 7D, resultados reales. Más de 25 años de trayectoria en Ramos Mejía.',
-    images: [
-      {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 628,
-        alt: 'Dr. Beauty Ramos - Clínica de Medicina Estética en Ramos Mejía',
-        type: 'image/jpeg',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    site: '@drbeautyramos',
-    creator: '@drbeautyramos',
-    title: 'Dr. Beauty Ramos | Medicina Estética & Bienestar Premium',
-    description: 'Transformamos la estética en salud. Tecnología avanzada, resultados reales. Agenda tu consulta en Ramos Mejía.',
+    description: 'Transformamos la estética en salud. Tecnología avanzada, resultados reales.',
     images: ['/og-image.jpg'],
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-  icons: {
-    icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-    ],
-    shortcut: '/favicon.ico',
-    apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
-    ],
-    other: [
-      {
-        rel: 'mask-icon',
-        url: '/safari-pinned-tab.svg',
-        color: '#C5A059',
-      },
-    ],
-  },
-  manifest: '/site.webmanifest',
-  other: {
-    'msapplication-TileColor': '#C5A059',
-    'apple-mobile-web-app-capable': 'yes',
-    'apple-mobile-web-app-title': 'Dr. Beauty Ramos',
-    'application-name': 'Dr. Beauty Ramos',
   },
 };
 
@@ -119,10 +60,21 @@ export default function RootLayout({
   return (
     <html lang="es-AR" dir="ltr">
       <head>
-        <meta property="og:image:secure_url" content="https://drbeautyramos.com/og-image.jpg" />
-        <meta property="og:image:type" content="image/jpeg" />
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="shortcut icon" href="/favicon.ico" />
+        {/* Google Tag (gtag.js) - Esto soluciona el error de "Falta etiqueta" */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18069228619"
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads-tag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-18069228619');
+          `}
+        </Script>
+        
+        <link rel="icon" href="/favicon.ico" />
       </head>
       <body className={`${inter.className} antialiased`}>
         {children}
