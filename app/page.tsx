@@ -36,14 +36,13 @@ export default function Home() {
   const tratamientosFaciales = [
     {
       titulo: "Tercio Superior",
-      subtitulo: "Tratamiento de arrugas", // Texto "seguro" para el bot
-      id: "label-btx-1", // ID para el reemplazo
+      subtitulo: "Suavizado de arrugas", // ✅ Eliminado id y manipulación DOM
       desc: "Suaviza arrugas de expresión en frente, entrecejo y patas de gallo para una mirada descansada.",
       img: "/inyecbtx.jpg"
     },
     {
       titulo: "Tercio Medio",
-      subtitulo: "Ácido Hialurónico",
+      subtitulo: "Rellenos dérmicos", // ✅ Cambiado: "Ácido Hialurónico" → genérico
       desc: "Reposición de volumen en pómulos, tratamiento de ojeras y rinomodelación sin cirugía.",
       img: "/facialesrino.jpeg"
     },
@@ -70,20 +69,20 @@ export default function Home() {
   const bioestimuladores = [
     {
       titulo: "Colágeno Puro",
-      subtitulo: "Sculptra",
-      desc: "Ácido poli-L-láctico que estimula la producción de colágeno de forma profunda, devolviendo estructura, firmeza maxima tensión en rostro y cuerpo.",
+      subtitulo: "Bioestimulador de colágeno", // ✅ Cambiado: "Sculptra" → genérico
+      desc: "Fórmula que estimula la producción natural de colágeno de forma profunda, devolviendo estructura y firmeza al rostro y cuerpo.",
       img: "/sculptra.jpeg"
     },
     {
       titulo: "Doble Acción",
-      subtitulo: "HarmonyCa",
-      desc: "Híbrido innovador que combina Ácido Hialurónico para volumen inmediato y Hidroxiapatita para estimular colágeno a largo plazo.",
+      subtitulo: "Relleno y bioestimulador", // ✅ Cambiado: "HarmonyCa" → genérico
+      desc: "Tratamiento híbrido que combina volumen inmediato con estimulación de colágeno a largo plazo para resultados duraderos.",
       img: "/harmonyca.jpeg"
     },
     {
       titulo: "Calidad de Piel",
-      subtitulo: "Skinvive",
-      desc: "El primer inyectable de microgotas de ácido hialurónico diseñado para suavizar y mejorar la hidratación interna de la piel.",
+      subtitulo: "Hidratación profunda", // ✅ Cambiado: "Skinvive" → genérico
+      desc: "Microinyecciones para mejorar la hidratación interna de la piel, devolviendo luminosidad y suavidad.",
       img: "/skinvive.jpeg"
     },
   ];
@@ -91,8 +90,8 @@ export default function Home() {
   const tratamientosCorporales = [
     {
       titulo: "Volumen y Contorno",
-      subtitulo: "Relleno Corporal Elhya",
-      desc: "Ácido hialurónico de alta densidad diseñado específicamente para proyectar glúteos y corregir irregularidades corporales.",
+      subtitulo: "Relleno corporal", // ✅ Cambiado: "Relleno Corporal Elhya" → genérico
+      desc: "Tratamiento de alta densidad diseñado específicamente para proyectar glúteos y corregir irregularidades corporales.",
       img: "/elhya.jpeg"
     },
     {
@@ -102,15 +101,15 @@ export default function Home() {
       img: "/hilosc.jpeg"
     },
     {
-      titulo: "Equilibrio Vital",
-      subtitulo: "Chip Hormonal",
-      desc: "Pellets de testosterona bioidéntica para mejorar la energía, la libido y la composición corporal de forma natural.",
+      titulo: "Bienestar Integral",
+      subtitulo: "Terapia de bienestar", // ✅ Cambiado: "Chip Hormonal" → genérico
+      desc: "Tratamiento personalizado para mejorar la energía, vitalidad y composición corporal de forma natural. Consulta con nuestros especialistas.",
       img: "/pellet.jpeg"
     },
     {
       titulo: "Celulitis y Adiposidad",
-      subtitulo: "FOSFA",
-      desc: "Fórmula de aplicación médica para el tratamiento de la grasa localizada y la mejora de la textura de la piel.",
+      subtitulo: "Reducción de grasa localizada", // ✅ Cambiado: "FOSFA" → genérico
+      desc: "Tratamiento médico para la grasa localizada y la mejora de la textura de la piel.",
       img: "/fosfa.jpeg"
     },
     {
@@ -122,12 +121,8 @@ export default function Home() {
   ];
 
   useEffect(() => {
-    // --- INYECCIÓN PARA EVITAR BLOQUEO DE ADS ---
-    const labelBtx = document.getElementById('label-btx-1');
-    if (labelBtx) {
-      labelBtx.innerText = 'Botox';
-    }
-    //
+    // ✅ ELIMINADA: Manipulación DOM de "Botox" (causaba rechazo por cloaking)
+    
     const autoScroll = (ref: React.RefObject<HTMLDivElement | null>) => {
       if (ref.current) {
         const { scrollLeft, scrollWidth, clientWidth } = ref.current;
@@ -326,7 +321,7 @@ export default function Home() {
                 </div>
                 <div className="p-8 md:p-10 flex flex-col flex-grow">
                   <span className="text-[#C5A059] text-[9px] uppercase tracking-[0.2em] mb-3 block font-medium">{t.titulo}</span>
-                  <h3 id={t.id} className="text-xl md:text-3xl font-serif mb-5 text-[#2C3E2D]">{t.subtitulo}</h3>
+                  <h3 className="text-xl md:text-3xl font-serif mb-5 text-[#2C3E2D]">{t.subtitulo}</h3>
                   <p className="text-[#666] text-sm md:text-base leading-relaxed mb-10 font-light flex-grow">{t.desc}</p>
                   <a 
                     href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_FACIAL(t.subtitulo))}`} 
@@ -696,7 +691,22 @@ export default function Home() {
 
         </div>
 
-        <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-[#F2F2F2] flex justify-center items-center">
+        {/* ✅ AGREGADO: Disclaimer médico obligatorio */}
+        <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-[#D4C5A1]/30">
+          <div className="max-w-4xl mx-auto text-center space-y-4">
+            <p className="text-[10px] text-[#999] leading-relaxed tracking-wide uppercase">
+              Todos los tratamientos son realizados por médicos especialistas matriculados. 
+              Los resultados pueden variar según las características de cada paciente. 
+              Las imágenes de la galería son casos reales con consentimiento informado. 
+              No constituyen garantía de resultados. Consulte con nuestros profesionales.
+            </p>
+            <p className="text-[10px] text-[#999]">
+              Dr. Daniel Félix - M.N. 85381 | Mat. Prov. Buenos Aires | Av. De Mayo 618, Ramos Mejía, Buenos Aires
+            </p>
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto mt-8 pt-8 border-t border-[#F2F2F2] flex justify-center items-center">
          <p className="text-[#999] text-[9px] uppercase tracking-[0.3em] text-center">
             © 2026 Dr. Beauty Ramos Mejía. Todos los derechos reservados.
           </p>
