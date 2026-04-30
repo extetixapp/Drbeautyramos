@@ -166,14 +166,14 @@ export default function Home() {
       </a>
 
       {/* NAVBAR - ✅ LOGO AGRANDADO */}
-      <nav className="bg-white py-5 px-6 border-b border-[#D4C5A1] sticky top-0 z-50">
+      <nav className="bg-white py-3 md:py-5 px-6 border-b border-[#D4C5A1] sticky top-0 z-50">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           {/* ✅ LOGO CON IMAGEN - TAMAÑO AUMENTADO */}
           <div className="flex flex-col items-start">
             <img 
               src="/logo.jpg" 
               alt="Dr. Beauty Ramos" 
-              className="h20- md:h-24 w-auto object-contain"
+              className="h-12 md:h-20 w-auto object-contain"
             />
             
           </div>

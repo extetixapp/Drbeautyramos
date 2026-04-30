@@ -1,3 +1,20 @@
+# robots.txt para Dr. Beauty Ramos
+# https://drbeautyramos.com
+
 User-agent: *
 Allow: /
+
+# Sitemap
 Sitemap: https://drbeautyramos.com/sitemap.xml
+
+# Directorios comunes a bloquear (si existen)
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /private/
+
+# Parámetros de URL que no deben indexarse
+Disallow: /*?*
+
+# Crawl-delay para no sobrecargar el servidor
+Crawl-delay: 1
