@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     default: 'Dr. Beauty Ramos | Medicina Estética & Bienestar Premium en Ramos Mejía',
     template: '%s | Dr. Beauty Ramos',
   },
-  description: 'Clínica de medicina estética líder en Ramos Mejía, Buenos Aires. Tratamientos faciales, corporales, bioestimuladores y cirugía plástica realizados por médicos especialistas. Más de 25 años de trayectoria. Consulta gratuita.',
+  description: 'Dr. Beauty Ramos - Clínica de medicina estética líder en Ramos Mejía, Buenos Aires. Tratamientos faciales, corporales, bioestimuladores y cirugía plástica realizados por médicos especialistas. Más de 25 años de trayectoria. Consulta gratuita - Av. De Mayo 618.',
   keywords: [
     'medicina estética Ramos Mejía',
     'tratamientos faciales Ramos Mejía',
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
     creator: '@drbeautyramos',
   },
   verification: {
-    google: '<meta name="google-site-verification" content="G0-811ErhkusbTfyO3R7pZ-KGjA0cN-86B5JwbMuDbM" />', // ⚠️ REEMPLAZAR cuando configures Search Console
+    google: 'G0-811ErhkusbTfyO3R7pZ-KGjA0cN-86B5JwbMuDbM',
   },
   alternates: {
     canonical: 'https://drbeautyramos.com',
