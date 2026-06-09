@@ -16,7 +16,7 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://extetix.com'),
+  metadataBase: new URL('https://extetixoficial.com'), // ✅ Actualizado a oficial
   title: {
     default: 'Extetix | Medicina Estética Integral en Ramos Mejía',
     template: '%s | Extetix',
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'es_AR',
-    url: 'https://extetix.com',
+    url: 'https://extetixoficial.com', // ✅ Actualizado a oficial
     siteName: 'Extetix',
     title: 'Extetix | Medicina Estética Integral',
     description: 'Centro de medicina estética líder en Ramos Mejía. Tratamientos faciales, corporales, bioestimuladores y cirugía plástica con trayectoria y excelencia profesional.',
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
     google: 'G0-811ErhkusbTfyO3R7pZ-KGjA0cN-86B5JwbMuDbM',
   },
   alternates: {
-    canonical: 'https://extetix.com',
+    canonical: 'https://extetixoficial.com', // ✅ Actualizado a oficial
   },
 };
 
@@ -89,10 +89,10 @@ const schemaOrgJsonLd = {
   '@type': 'MedicalBusiness',
   name: 'Extetix',
   description: 'Centro de medicina estética integral en Ramos Mejía. Tratamientos faciales, corporales, bioestimuladores y cirugía plástica respaldados por profesionales con años de experiencia.',
-  url: 'https://extetix.com',
+  url: 'https://extetixoficial.com', // ✅ Actualizado a oficial
   telephone: '+54-9-11-5504-4320', 
   email: 'extetix.oficial@gmail.com',
-  image: 'https://extetix.com/logo.jpg',
+  image: 'https://extetixoficial.com/logo.jpg', // ✅ Actualizado a oficial
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Av. De Mayo 618',
