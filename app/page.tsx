@@ -28,9 +28,9 @@ export default function Home() {
 
   // Datos de la galería
   const galeriasResultados = [
-    { tratamiento: "Rinomodelación", archivo: "/aydrino.jpeg" },
-    { tratamiento: "Relleno de Labios", archivo: "/aydlabios.jpeg" },
-    { tratamiento: "Tratamiento de Ojeras", archivo: "/aydojeras.jpeg" }
+    { tratamiento: "Rinomodelación", archivo: "/rinoext.jpeg" },
+    { tratamiento: "Relleno de Labios", archivo: "/labiosex.jpeg" },
+    { tratamiento: "Hilos tensores", archivo: "/hilosex.jpeg" }
   ];
 
   const tratamientosFaciales = [
@@ -166,15 +166,14 @@ export default function Home() {
       {/* NAVBAR - ✅ LOGO AGRANDADO */}
       <nav className="bg-white py-5 px-6 border-b border-[#D4C5A1] sticky top-0 z-50">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          {/* ✅ LOGO CON IMAGEN - TAMAÑO AUMENTADO */}
-          <div className="flex flex-col items-start">
-            <img 
-              src="/logo.jpg" 
-              alt="Dr. Beauty Ramos" 
-              className="h-16 md:h-20 w-auto object-contain"
-            />
-            
-          </div>
+         {/* ✅ LOGO CON IMAGEN - REDONDO Y PREMIUM */}
+<div className="flex flex-col items-start">
+  <img 
+    src="/logo.jpeg" 
+    alt="Extetix" 
+    className="h-16 w-16 md:h-20 md:w-20 rounded-full object-cover aspect-square border border-[#C5A059]/30 shadow-md"
+  />
+</div>
           
           <div className="hidden md:flex items-center gap-10 text-[10px] font-normal uppercase tracking-[0.3em] text-[#C5A059]">
             <a href="#quienes-somos" className="hover:text-[#2C3E2D] transition duration-500">Quiénes Somos</a>
@@ -184,8 +183,8 @@ export default function Home() {
           
           <div className="flex items-center gap-5">
             <div className="hidden md:flex items-center gap-5 text-[#C5A059]">
-              <a href="https://www.instagram.com/drbeauty.ramos" target="_blank" rel="noopener noreferrer" className="hover:text-[#2C3E2D] transition duration-500" aria-label="Instagram"><Instagram size={20} strokeWidth={1.5} /></a>
-              <a href="https://www.facebook.com/drbeauty.ramos" target="_blank" rel="noopener noreferrer" className="hover:text-[#2C3E2D] transition duration-500" aria-label="Facebook"><Facebook size={20} strokeWidth={1.5} /></a>
+              <a href="https://www.instagram.com/extetix.original?igsh=MXUzdTMxbzZyMW1raA==" target="_blank" rel="noopener noreferrer" className="hover:text-[#2C3E2D] transition duration-500" aria-label="Instagram"><Instagram size={20} strokeWidth={1.5} /></a>
+              <a href="https://www.facebook.com/share/14jGqr89t5t/" target="_blank" rel="noopener noreferrer" className="hover:text-[#2C3E2D] transition duration-500" aria-label="Facebook"><Facebook size={20} strokeWidth={1.5} /></a>
             </div>
             <button 
               className="md:hidden text-[#C5A059]" 
@@ -604,7 +603,7 @@ export default function Home() {
             <p className="text-[11px] uppercase tracking-[0.3em] text-[#666] mb-8">Ver más casos clínicos reales en nuestras redes</p>
             <div className="flex justify-center items-center">
               <a 
-                href="https://www.instagram.com/drbeauty.ramos" 
+                href="https://www.instagram.com/extetix.original?igsh=MXUzdTMxbzZyMW1raA==" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 text-[#C5A059] hover:text-[#2C2C2C] transition-all group"
@@ -612,7 +611,7 @@ export default function Home() {
                 <div className="p-3 border border-[#C5A059] rounded-full group-hover:bg-[#C5A059] group-hover:text-white transition-all">
                   <Instagram size={24} strokeWidth={1} />
                 </div>
-                <span className="text-[10px] uppercase tracking-[0.4em] font-medium">@drbeauty.ramos</span>
+                <span className="text-[10px] uppercase tracking-[0.4em] font-medium">@extetix.original</span>
               </a>
             </div>
           </div>
@@ -623,15 +622,14 @@ export default function Home() {
       <footer id="contacto" className="bg-white py-20 px-6 md:px-12 border-t border-[#D4C5A1]/40">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 items-start">
           
-          {/* ✅ COLUMNA 1: Logo imagen - TAMAÑO AUMENTADO */}
-          <div className="flex flex-col items-center md:items-start space-y-4">
-            <img 
-              src="/logo.jpg" 
-              alt="Dr. Beauty Ramos" 
-              className="h-40 md:h-56 w-auto object-contain"
-            />
-            
-          </div>
+        {/* ✅ COLUMNA 1: Logo imagen - REDONDO, REFINADO Y MINIMALISTA */}
+<div className="flex flex-col items-center md:items-start space-y-4">
+  <img 
+    src="/logo.jpeg" 
+    alt="Extetix" 
+    className="h-20 w-20 md:h-24 md:w-24 rounded-full object-cover aspect-square border border-[#C5A059]/20 shadow-sm"
+  />
+</div>
 
           <div className="flex flex-col items-center text-center space-y-8">
             <div>
@@ -691,7 +689,7 @@ export default function Home() {
 
         <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-[#F2F2F2] flex justify-center items-center">
          <p className="text-[#999] text-[9px] uppercase tracking-[0.3em] text-center">
-            © 2026 Dr. Beauty Ramos Mejía. Todos los derechos reservados.
+            © 2026 Extetix.Medicina Estetica Intgral. Todos los derechos reservados.
           </p>
         </div>
       </footer>
