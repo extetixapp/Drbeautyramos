@@ -36,13 +36,13 @@ export default function Home() {
   const tratamientosFaciales = [
     {
       titulo: "Tercio Superior",
-      subtitulo: "Suavizado de arrugas", // ✅ Eliminado id y manipulación DOM
+      subtitulo: "Botox",
       desc: "Suaviza arrugas de expresión en frente, entrecejo y patas de gallo para una mirada descansada.",
       img: "/inyecbtx.jpg"
     },
     {
       titulo: "Tercio Medio",
-      subtitulo: "Rellenos dérmicos", // ✅ Cambiado: "Ácido Hialurónico" → genérico
+      subtitulo: "Ácido Hialurónico",
       desc: "Reposición de volumen en pómulos, tratamiento de ojeras y rinomodelación sin cirugía.",
       img: "/facialesrino.jpeg"
     },
@@ -69,20 +69,20 @@ export default function Home() {
   const bioestimuladores = [
     {
       titulo: "Colágeno Puro",
-      subtitulo: "Bioestimulador de colágeno", // ✅ Cambiado: "Sculptra" → genérico
-      desc: "Fórmula que estimula la producción natural de colágeno de forma profunda, devolviendo estructura y firmeza al rostro y cuerpo.",
+      subtitulo: "Sculptra",
+      desc: "Ácido poli-L-láctico que estimula la producción de colágeno de forma profunda, devolviendo estructura, firmeza maxima tensión en rostro y cuerpo.",
       img: "/sculptra.jpeg"
     },
     {
       titulo: "Doble Acción",
-      subtitulo: "Relleno y bioestimulador", // ✅ Cambiado: "HarmonyCa" → genérico
-      desc: "Tratamiento híbrido que combina volumen inmediato con estimulación de colágeno a largo plazo para resultados duraderos.",
+      subtitulo: "HarmonyCa",
+      desc: "Híbrido innovador que combina Ácido Hialurónico para volumen inmediato y Hidroxiapatita para estimular colágeno a largo plazo.",
       img: "/harmonyca.jpeg"
     },
     {
       titulo: "Calidad de Piel",
-      subtitulo: "Hidratación profunda", // ✅ Cambiado: "Skinvive" → genérico
-      desc: "Microinyecciones para mejorar la hidratación interna de la piel, devolviendo luminosidad y suavidad.",
+      subtitulo: "Skinvive",
+      desc: "El primer inyectable de microgotas de ácido hialurónico diseñado para suavizar y mejorar la hidratación interna de la piel.",
       img: "/skinvive.jpeg"
     },
   ];
@@ -90,8 +90,8 @@ export default function Home() {
   const tratamientosCorporales = [
     {
       titulo: "Volumen y Contorno",
-      subtitulo: "Relleno corporal", // ✅ Cambiado: "Relleno Corporal Elhya" → genérico
-      desc: "Tratamiento de alta densidad diseñado específicamente para proyectar glúteos y corregir irregularidades corporales.",
+      subtitulo: "Relleno Corporal Elhya",
+      desc: "Ácido hialurónico de alta densidad diseñado específicamente para proyectar glúteos y corregir irregularidades corporales.",
       img: "/elhya.jpeg"
     },
     {
@@ -101,15 +101,15 @@ export default function Home() {
       img: "/hilosc.jpeg"
     },
     {
-      titulo: "Bienestar Integral",
-      subtitulo: "Terapia de bienestar", // ✅ Cambiado: "Chip Hormonal" → genérico
-      desc: "Tratamiento personalizado para mejorar la energía, vitalidad y composición corporal de forma natural. Consulta con nuestros especialistas.",
+      titulo: "Equilibrio Vital",
+      subtitulo: "Chip Hormonal",
+      desc: "Pellets de testosterona bioidéntica para mejorar la energía, la libido y la composición corporal de forma natural.",
       img: "/pellet.jpeg"
     },
     {
       titulo: "Celulitis y Adiposidad",
-      subtitulo: "Reducción de grasa localizada", // ✅ Cambiado: "FOSFA" → genérico
-      desc: "Tratamiento médico para la grasa localizada y la mejora de la textura de la piel.",
+      subtitulo: "FOSFA",
+      desc: "Fórmula de aplicación médica para el tratamiento de la grasa localizada y la mejora de la textura de la piel.",
       img: "/fosfa.jpeg"
     },
     {
@@ -121,8 +121,6 @@ export default function Home() {
   ];
 
   useEffect(() => {
-    // ✅ ELIMINADA: Manipulación DOM de "Botox" (causaba rechazo por cloaking)
-    
     const autoScroll = (ref: React.RefObject<HTMLDivElement | null>) => {
       if (ref.current) {
         const { scrollLeft, scrollWidth, clientWidth } = ref.current;
@@ -166,14 +164,14 @@ export default function Home() {
       </a>
 
       {/* NAVBAR - ✅ LOGO AGRANDADO */}
-      <nav className="bg-white py-3 md:py-5 px-6 border-b border-[#D4C5A1] sticky top-0 z-50">
+      <nav className="bg-white py-5 px-6 border-b border-[#D4C5A1] sticky top-0 z-50">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           {/* ✅ LOGO CON IMAGEN - TAMAÑO AUMENTADO */}
           <div className="flex flex-col items-start">
             <img 
               src="/logo.jpg" 
               alt="Dr. Beauty Ramos" 
-              className="h-12 md:h-20 w-auto object-contain"
+              className="h-16 md:h-20 w-auto object-contain"
             />
             
           </div>
@@ -212,9 +210,9 @@ export default function Home() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
           <div className="flex-1 text-left order-1">
             <h3 className="text-[#C5A059] text-4xl md:text-6xl font-serif mb-8 leading-[1.1] uppercase font-light tracking-tight">
-              Dr. Beauty Ramos Mejia<br/> 
-              <span className="italic uppercase">Medicina Estética</span> <br/> 
-              y Bienestar Premium
+              Extetix <br/> 
+              <span className="italic uppercase">Medicina Estética Integral</span> <br/> 
+              
             </h3>
             <p className="text-[#4A4A4A] text-lg md:text-xl font-light leading-relaxed mb-10 tracking-wide">
               Tecnología avanzada, resultados reales.
@@ -225,14 +223,14 @@ export default function Home() {
               rel="noopener noreferrer"
               className="inline-block border border-[#C5A059] text-[#C5A059] hover:bg-[#C5A059] hover:text-white px-12 py-4 text-[10px] font-normal uppercase tracking-[0.3em] transition-all duration-700 shadow-sm"
             >
-              Hacé tu consulta
+              Agendar consulta.
             </a>
           </div>
 
           <div className="flex-1 order-2 w-full">
             <div className="relative bg-white p-3 md:p-6 shadow-2xl border border-[#D4C5A1]/30 transition-all duration-1000">
               <img 
-                src="/Drfelix.jpg" 
+                src="/facialesprp.jpeg" 
                 alt="Dr. Félix" 
                 className="w-full h-auto object-contain grayscale-[5%] hover:grayscale-0 transition-all duration-700" 
               />
@@ -243,14 +241,14 @@ export default function Home() {
       </section>
 
       {/* SECCIÓN: ENFOQUE MÉDICO */}
-      <section className="py-16 md:pt-24 md:pb-16 px-6 md:px-12 bg-[#FDFBF7]">
+      {/*<section className="py-16 md:pt-24 md:pb-16 px-6 md:px-12 bg-[#FDFBF7]">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16 mb-20">
           <div className="flex-1 text-left order-1 md:order-2">
             <h3 className="text-[#C5A059] text-3xl md:text-5xl font-serif mb-8 leading-[1.2] uppercase font-light tracking-tight">
               Cuidamos tu belleza <br/> con un enfoque <br/> médico profesional
             </h3>
             <div className="space-y-6 text-[#4A4A4A] text-base md:text-lg font-light leading-relaxed tracking-wide">
-              <p>En <span className="italic">Dr. Beauty Ramos Mejia</span>, transformamos la estética en salud.</p>
+              <p>En <span className="italic">Dr. Beauty Ramos</span>, transformamos la estética en salud.</p>
               <p>Con más de 25 años de trayectoria liderados por el prestigioso Dr. Daniel Félix, contamos con un equipo de alto nivel médico y productos premium con certificaciones FDA y ANMAT.</p>
               <p>Somos la red de medicina estética más extensa del país con más de 18 clínicas y miles de pacientes que confían en nosotros.</p>
             </div>
@@ -278,14 +276,14 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section>*/}
 
       {/* MANIFIESTO */}
       <section className="py-20 bg-[#F2F2F2] px-6">
         <div className="max-w-4xl mx-auto text-center">
           <div className="w-12 h-[1px] bg-[#C5A059] mx-auto mb-8"></div>
           <h2 className="text-[#C5A059] text-2xl md:text-4xl font-serif italic font-light leading-relaxed tracking-wide">
-            En Dr. Beauty Ramos realzamos tu belleza natural, priorizando tu salud, armonía y seguridad en cada tratamiento.
+            En Extetix realzamos tu belleza natural, priorizando tu salud, armonía y seguridad en cada tratamiento.
           </h2>
           <div className="w-12 h-[1px] bg-[#C5A059] mx-auto mt-8"></div>
         </div>
@@ -502,19 +500,19 @@ export default function Home() {
                 alt="Cirugía Plástica" 
                 className="w-full h-full object-cover grayscale-[20%]"
               />
-              <div className="absolute -bottom-6 -right-6 bg-[#C5A059] text-white p-8 hidden md:block shadow-xl">
+              {/*<div className="absolute -bottom-6 -right-6 bg-[#C5A059] text-white p-8 hidden md:block shadow-xl">
                 <p className="text-[10px] uppercase tracking-[0.4em] mb-2">Trayectoria</p>
                 <p className="text-3xl font-serif">+25 Años</p>
-              </div>
+              </div>*/}
             </div>
           </div>
           <div className="flex-1 text-left order-1 md:order-2">
             <h4 className="text-[#C5A059] text-[10px] uppercase tracking-[0.4em] mb-4 font-normal">Excelencia Quirúrgica</h4>
             <h2 className="text-4xl md:text-6xl font-serif mb-8 text-[#2C3E2D] uppercase leading-tight">Cirugía <br /> <span className="italic">Plástica</span></h2>
-            <div className="space-y-6 text-[#4A4A4A] text-base md:text-lg font-light leading-relaxed mb-10">
+           {/* <div className="space-y-6 text-[#4A4A4A] text-base md:text-lg font-light leading-relaxed mb-10">
               <p>En <span className="font-normal text-[#2C3E2D]">Dr. Beauty</span> ponemos a tu alcance lo último en cirugías plásticas, respaldados por un equipo médico altamente especializado.</p>
               <p>Nuestro compromiso es brindarte seguridad, confianza y los resultados que deseás. Todas las intervenciones son realizadas por el <strong>Dr. Daniel Félix (M.N. 85381)</strong> junto a su equipo, con más de 25 años de trayectoria en el área.</p>
-            </div>
+            </div>*/}
             <div className="space-y-4 mb-10">
               {[
                 { name: "Liposuccion", msg: 'Hola! Me gustaría consultar por Liposuccion.' },
@@ -656,8 +654,8 @@ export default function Home() {
                 <MessageCircle size={16} className="text-[#C5A059] group-hover:scale-110 transition-transform" />
                 <span className="text-base font-light tracking-wider">54 9 11 5504-4320</span>
               </a>
-              <a href="mailto:drbeautyramos@gmail.com" className="block text-[#666] text-sm font-light hover:text-[#C5A059] transition-colors">
-                drbeautyramos@gmail.com
+              <a href="mailto:extetix.oficial@gmail.com" className="block text-[#666] text-sm font-light hover:text-[#C5A059] transition-colors">
+              extetix.oficial@gmail.com
               </a>
             </div>
           </div>
@@ -691,22 +689,7 @@ export default function Home() {
 
         </div>
 
-        {/* ✅ AGREGADO: Disclaimer médico obligatorio */}
-        <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-[#D4C5A1]/30">
-          <div className="max-w-4xl mx-auto text-center space-y-4">
-            <p className="text-[10px] text-[#999] leading-relaxed tracking-wide uppercase">
-              Todos los tratamientos son realizados por médicos especialistas matriculados. 
-              Los resultados pueden variar según las características de cada paciente. 
-              Las imágenes de la galería son casos reales con consentimiento informado. 
-              No constituyen garantía de resultados. Consulte con nuestros profesionales.
-            </p>
-            <p className="text-[10px] text-[#999]">
-              Dr. Daniel Félix - M.N. 85381 | Mat. Prov. Buenos Aires | Av. De Mayo 618, Ramos Mejía, Buenos Aires
-            </p>
-          </div>
-        </div>
-
-        <div className="max-w-7xl mx-auto mt-8 pt-8 border-t border-[#F2F2F2] flex justify-center items-center">
+        <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-[#F2F2F2] flex justify-center items-center">
          <p className="text-[#999] text-[9px] uppercase tracking-[0.3em] text-center">
             © 2026 Dr. Beauty Ramos Mejía. Todos los derechos reservados.
           </p>
