@@ -16,8 +16,7 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
-  // 📝 Cuando tengan el dominio, reemplazá esta URL por la definitiva
-  metadataBase: new URL('https://EL_NUEVO_DOMINIO_DE_EXTETIX.com'),
+  metadataBase: new URL('https://extetix.com'), // ✅ Actualizado
   title: {
     default: 'Extetix | Medicina Estética Integral en Ramos Mejía',
     template: '%s | Extetix',
@@ -58,7 +57,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'es_AR',
-    url: 'https://EL_NUEVO_DOMINIO_DE_EXTETIX.com', // 📝 Reemplazar por dominio definitivo
+    url: 'https://extetix.com', // ✅ Actualizado
     siteName: 'Extetix',
     title: 'Extetix | Medicina Estética Integral',
     description: 'Centro de medicina estética líder en Ramos Mejía. Tratamientos faciales, corporales, bioestimuladores y cirugía plástica con trayectoria y excelencia profesional.',
@@ -81,7 +80,7 @@ export const metadata: Metadata = {
     google: 'G0-811ErhkusbTfyO3R7pZ-KGjA0cN-86B5JwbMuDbM',
   },
   alternates: {
-    canonical: 'https://EL_NUEVO_DOMINIO_DE_EXTETIX.com', // 📝 Reemplazar por dominio definitivo
+    canonical: 'https://extetix.com', // ✅ Actualizado
   },
 };
 
@@ -91,10 +90,10 @@ const schemaOrgJsonLd = {
   '@type': 'MedicalBusiness',
   name: 'Extetix',
   description: 'Centro de medicina estética integral en Ramos Mejía. Tratamientos faciales, corporales, bioestimuladores y cirugía plástica respaldados por profesionales con años de experiencia.',
-  url: 'https://EL_NUEVO_DOMINIO_DE_EXTETIX.com', // 📝 Reemplazar por dominio definitivo
+  url: 'https://extetix.com', // ✅ Actualizado
   telephone: '+54-9-11-5504-4320', 
-  email: 'extetix.oficial@gmail.com', // ✅ Actualizado
-  image: 'https://EL_NUEVO_DOMINIO_DE_EXTETIX.com/logo.jpg', // 📝 Reemplazar por dominio definitivo
+  email: 'extetix.oficial@gmail.com',
+  image: 'https://extetix.com/logo.jpg', // ✅ Actualizado
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Av. De Mayo 618',
@@ -118,8 +117,8 @@ const schemaOrgJsonLd = {
   ],
   priceRange: '$$$',
   sameAs: [
-    'https://www.instagram.com/extetix.original', // ✅ Actualizado
-    'https://www.facebook.com/share/14jGqr89t5t/', // ✅ Actualizado
+    'https://www.instagram.com/extetix.original',
+    'https://www.facebook.com/share/14jGqr89t5t/',
   ],
   areaServed: {
     '@type': 'City',
@@ -182,24 +181,3 @@ export default function RootLayout({
             gtag('config', 'AW-18069228619');
           `}
         </Script>
-        
-        {/* ✅ SCHEMA.ORG JSON-LD */}
-        <Script
-          id="schema-org"
-          type="application/ld+json"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(schemaOrgJsonLd),
-          }}
-        />
-        
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/site.webmanifest" />
-      </head>
-      <body className={`${inter.className} antialiased`}>
-        {children}
-      </body>
-    </html>
-  );
-}
