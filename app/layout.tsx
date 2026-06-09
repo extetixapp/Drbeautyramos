@@ -12,11 +12,11 @@ export const viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
-  themeColor: '#C5A059', // Mantenemos tu dorado premium institucional
+  themeColor: '#C5A059',
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://extetix.com'), // ✅ Actualizado
+  metadataBase: new URL('https://extetix.com'),
   title: {
     default: 'Extetix | Medicina Estética Integral en Ramos Mejía',
     template: '%s | Extetix',
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'es_AR',
-    url: 'https://extetix.com', // ✅ Actualizado
+    url: 'https://extetix.com',
     siteName: 'Extetix',
     title: 'Extetix | Medicina Estética Integral',
     description: 'Centro de medicina estética líder en Ramos Mejía. Tratamientos faciales, corporales, bioestimuladores y cirugía plástica con trayectoria y excelencia profesional.',
@@ -80,20 +80,19 @@ export const metadata: Metadata = {
     google: 'G0-811ErhkusbTfyO3R7pZ-KGjA0cN-86B5JwbMuDbM',
   },
   alternates: {
-    canonical: 'https://extetix.com', // ✅ Actualizado
+    canonical: 'https://extetix.com',
   },
 };
 
-// ✅ SCHEMA.ORG JSON-LD para Clínica Médica (Actualizado a Extetix)
 const schemaOrgJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'MedicalBusiness',
   name: 'Extetix',
   description: 'Centro de medicina estética integral en Ramos Mejía. Tratamientos faciales, corporales, bioestimuladores y cirugía plástica respaldados por profesionales con años de experiencia.',
-  url: 'https://extetix.com', // ✅ Actualizado
+  url: 'https://extetix.com',
   telephone: '+54-9-11-5504-4320', 
   email: 'extetix.oficial@gmail.com',
-  image: 'https://extetix.com/logo.jpg', // ✅ Actualizado
+  image: 'https://extetix.com/logo.jpg',
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Av. De Mayo 618',
@@ -168,7 +167,7 @@ export default function RootLayout({
   return (
     <html lang="es-AR" dir="ltr">
       <head>
-        {/* ✅ GOOGLE TAG - Tus campañas e historial de Ads se mantienen activos */}
+        {/* ✅ GOOGLE TAG */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-18069228619"
           strategy="afterInteractive"
@@ -181,3 +180,24 @@ export default function RootLayout({
             gtag('config', 'AW-18069228619');
           `}
         </Script>
+        
+        {/* ✅ SCHEMA.ORG JSON-LD */}
+        <Script
+          id="schema-org"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(schemaOrgJsonLd),
+          }}
+        />
+        
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+      </head>
+      <body className={`${inter.className} antialiased`}>
+        {children}
+      </body>
+    </html>
+  );
+}
