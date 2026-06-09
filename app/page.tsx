@@ -229,7 +229,7 @@ export default function Home() {
           <div className="flex-1 order-2 w-full">
             <div className="relative bg-white p-3 md:p-6 shadow-2xl border border-[#D4C5A1]/30 transition-all duration-1000">
               <img 
-                src="/facialesprp.jpeg" 
+                src="/inyecbtx.jpg" 
                 alt="Dr. Félix" 
                 className="w-full h-auto object-contain grayscale-[5%] hover:grayscale-0 transition-all duration-700" 
               />
