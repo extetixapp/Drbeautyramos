@@ -154,7 +154,7 @@ export default function Home() {
       
       {/* BOTÓN WHATSAPP FLOTANTE */}
       <a 
-        href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hola! Vengo desde la web de Dr. Beauty Ramos y me gustaría realizar una consulta.')}`}
+        href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hola! Vengo desde la web de Extetix y me gustaría realizar una consulta.')}`}
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-8 right-8 z-[60] bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 animate-bounce"
