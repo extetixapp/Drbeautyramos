@@ -86,7 +86,7 @@ export default function BotoxPage() {
       <section className="bg-[#2C3E2D] py-16 px-6 text-white text-center">
         <Award size={40} className="mx-auto mb-6 text-[#C5A059]" />
         <p className="max-w-3xl mx-auto font-serif text-xl italic">
-          "Contamos con un staff estable de cirujanos plásticos para que te acompañen en cada decisión, brindándote la seguridad y excelencia que tu salud merece."
+          Contamos con un staff estable de cirujanos plásticos para que te acompañen en cada decisión, brindándote la seguridad y excelencia que tu salud merece.
         </p>
       </section>
 
