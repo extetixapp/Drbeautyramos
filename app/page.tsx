@@ -38,31 +38,36 @@ export default function Home() {
       titulo: "Tercio Superior",
       subtitulo: "Botox",
       desc: "Suaviza arrugas de expresión en frente, entrecejo y patas de gallo para una mirada descansada.",
-      img: "/inyecbtx.jpg"
+      img: "/inyecbtx.jpg",
+      link: "/botoxramos"
     },
     {
       titulo: "Tercio Medio",
       subtitulo: "Ácido Hialurónico",
       desc: "Reposición de volumen en pómulos, tratamiento de ojeras y rinomodelación sin cirugía.",
-      img: "/facialesrino.jpeg"
+      img: "/facialesrino.jpeg",
+      link: "/tratamientos/acido-hialuronico"
     },
     {
       titulo: "Tercio Inferior",
       subtitulo: "Armonización",
       desc: "Perfilado de labios, surcos nasogenianos y definición del contorno mandibular y mentón.",
-      img: "/facialesmenton.jpeg"
+      img: "/facialesmenton.jpeg",
+      link: "/tratamientos/armonizacion"
     },
     {
       titulo: "Bioestimulación",
       subtitulo: "Plasma Rico en Plaquetas",
       desc: "Tratamiento autólogo que utiliza tus propios factores de crecimiento para regenerar y dar luminosidad a la piel.",
-      img: "/facialesprp.jpeg"
+      img: "/facialesprp.jpeg",
+      link: "/tratamientos/prp"
     },
     {
       titulo: "Efecto Lifting",
       subtitulo: "Hilos Tensores",
       desc: "Redefinición del óvalo facial y tratamiento de la flacidez mediante hilos de polidioxanona (PDO) de última generación.",
-      img: "/facialeshilos.jpeg"
+      img: "/facialeshilos.jpeg",
+      link: "/tratamientos/hilos-tensores"
     }
   ];
 
@@ -320,14 +325,13 @@ export default function Home() {
                   <span className="text-[#C5A059] text-[9px] uppercase tracking-[0.2em] mb-3 block font-medium">{t.titulo}</span>
                   <h3 className="text-xl md:text-3xl font-serif mb-5 text-[#2C3E2D]">{t.subtitulo}</h3>
                   <p className="text-[#666] text-sm md:text-base leading-relaxed mb-10 font-light flex-grow">{t.desc}</p>
+                  {/* NUEVO BOTÓN: Redirige a la página de detalle */}
                   <a 
-                    href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(MENSAJE_FACIAL(t.subtitulo))}`} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="inline-block w-full text-center border border-[#C5A059] py-5 text-[10px] uppercase tracking-[0.3em] text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition-all duration-700 font-medium"
-                  >
-                    Consultar ahora
-                  </a>
+  href={t.link} // Ahora cada botón busca el link asignado arriba
+  className="inline-block w-full text-center border border-[#C5A059] py-5 text-[10px] uppercase tracking-[0.3em] text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition-all duration-700 font-medium"
+>
+  Ver detalles y agendar
+</a>
                 </div>
               </div>
             ))}
